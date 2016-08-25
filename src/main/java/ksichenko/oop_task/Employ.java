@@ -6,7 +6,7 @@ abstract class Employ {
 
     protected String name;
     protected String sex;
-    protected double salary;
+    protected String salary;
     protected int id;
 
     public void printSalary() {

@@ -28,6 +28,7 @@ atqc065_tasks.iml
 
 ## File-based project format:
 *.iws
+*.class
 
 ## Plugin-specific files:
 

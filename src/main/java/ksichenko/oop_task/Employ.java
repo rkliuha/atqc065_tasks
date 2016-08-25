@@ -6,7 +6,7 @@ abstract class Employ {
 
     protected String name;
     protected String sex;
-    protected String salary;
+    protected double salary;
     protected int id;
 
     public void printSalary() {
@@ -17,10 +17,4 @@ abstract class Employ {
 
     abstract void calculateSalary();
 
-    public Employ(String employName, String sex, String salary, int id) {
-        this.name = employName;
-        this.sex = sex;
-        this.salary = salary;
-        this.id = id;
-    }
 }

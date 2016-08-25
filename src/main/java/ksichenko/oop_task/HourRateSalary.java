@@ -5,12 +5,14 @@ package ksichenko.oop_task;
  */
 public class HourRateSalary extends Employ {
 
-    public HourRateSalary(String employName, String sex, String salary, int id) {
-        super(employName, sex, salary, id);
+    public HourRateSalary(String name, String sex, int salary, int id) {
+        this.name = name;
+        this.sex = sex;
+        this.id = id;
     }
 
     void calculateSalary() {
-        double salary = 0.8 * 8 * 10;
+        salary = 0.8 * 8 * 10;
         System.out.println("Employ salary amount: " + salary);
     }
 }

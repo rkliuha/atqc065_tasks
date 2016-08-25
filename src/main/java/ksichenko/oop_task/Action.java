@@ -17,5 +17,7 @@ public class Action {
 
         kmarko.calculateSalary();
         kmarko.printSalary();
+
+
     }
 }

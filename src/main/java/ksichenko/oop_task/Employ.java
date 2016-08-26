@@ -1,20 +1,16 @@
 package ksichenko.oop_task;
 
-import java.io.PrintStream;
-
-abstract class Employ {
+abstract class Employ implements CalculateSalary {
 
     protected String name;
     protected String sex;
     protected String salary;
     protected int id;
 
-    public void printSalary() {
-        System.out.println("Employ name: " + name);
-        System.out.println("Employ salary: " + salary);
-        System.out.println("Employ id: " + id);
+    public final void printSalary() {
+        System.out.println("Employ name: " + id);
+        System.out.println("Employ salary: " + name);
+        System.out.println("Employ id: " + salary);
     }
-
-    abstract void calculateSalary();
 
 }

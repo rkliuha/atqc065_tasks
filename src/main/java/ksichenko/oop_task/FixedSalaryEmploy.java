@@ -9,8 +9,8 @@ public class FixedSalaryEmploy extends Employ {
         this.id = id;
     }
 
-    void calculateSalary() {
-       int salary = 10000;
-        System.out.println("Employ salary amount: " + salary);
+    public void calculateSalary() {
+        int fixedSalary = 10000;
+        System.out.println("Employ salary amount: " + fixedSalary);
     }
 }

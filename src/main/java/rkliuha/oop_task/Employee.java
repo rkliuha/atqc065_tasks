@@ -1,46 +1,43 @@
 package rkliuha.oop_task;
 
-public abstract class Employee {
+public abstract class Employee implements SalaryCalculator {
 
-    private int id;
-    private String name;
-    private String sex;
+    private final int id;
+    private final String name;
+    private final String sex;
     private double salary;
 
-    public Employee(int id, String name, String sex) {
+    public Employee(final int id, final String name, final String sex) {
         this.name = name;
         this.sex = sex;
         this.id = id;
     }
 
-    public void printSalary() {
+    public final void printSalary() {
         System.out.println("Employee id: " + getId());
         System.out.println("Employee name: " + getName());
         System.out.println("Employee sex: " + getSex());
-        System.out.println("Employee salary: " + getSalary());
+        System.out.println("Employee salary: " + getSalary() + "$");
         System.out.println();
     }
 
-    public abstract void calculateSalary();
-
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public String getSex() {
+    public final String getSex() {
         return sex;
     }
 
-    public int getId() {
+    public final int getId() {
         return id;
     }
 
-    public double getSalary() {
+    public final double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public final void setSalary(final double salary) {
         this.salary = salary;
     }
-
 }

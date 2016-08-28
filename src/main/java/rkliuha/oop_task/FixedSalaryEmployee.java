@@ -2,13 +2,25 @@ package rkliuha.oop_task;
 
 public class FixedSalaryEmployee extends Employee {
 
+    public static final double BASIC_FIXED_SALARY = 10000;
 
-    public FixedSalaryEmployee(int id, String name, String sex) {
+    private final double fixedSalary;
+
+    public FixedSalaryEmployee(final int id, final String name,
+                               final String sex, final double fixedSalary) {
         super(id, name, sex);
+        this.fixedSalary = fixedSalary;
         calculateSalary();
     }
 
-    public void calculateSalary() {
-        setSalary(10000);
+    public FixedSalaryEmployee(final int id, final String name,
+                               final String sex) {
+        super(id, name, sex);
+        fixedSalary = BASIC_FIXED_SALARY;
+        calculateSalary();
+    }
+
+    public final void calculateSalary() {
+        setSalary(fixedSalary);
     }
 }

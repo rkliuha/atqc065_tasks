@@ -1,24 +1,21 @@
-package main.java.dshkliar.oop_task;
+package dshkliar.oop_task;
 
-/**
- * Created by Dmytro on 025 25 08 2016.
- */
-public class EmployeeWithFixedSalary extends Employee implements Salary {
+public class EmployeeWithFixedSalary extends Employee {
 
-
-    EmployeeWithFixedSalary(){
-        super();
+    EmployeeWithFixedSalary(final int identifier, final String name,
+                            final char sex, final double salary) {
+        super(identifier, name, sex);
+        this.salary = salary;
     }
 
-    EmployeeWithFixedSalary(int id, String name, char sex, double salary){
-        super(id, name, sex, salary);
-    }
-
-    public double calculateSalary() {
+    final public double calculateSalary() {
         return salary;
     }
 
-    public void printSalary() {
-        System.out.println("\tname: " + name + ";\n\tsex: " + sex + ";\n\tID: " + id + ";\n\tsalary: " + calculateSalary());
+    final void printSalary() {
+        System.out.println("\nInfomation for Employee With Fixed Price: ");
+        System.out.println("\tname: " + name + ";\n\tsex: " + sex
+                + ";\n\tID: " + identifier + ";\n\tsalary: "
+                + calculateSalary());
     }
 }

@@ -1,34 +1,20 @@
-package main.java.dshkliar.oop_task;
+package dshkliar.oop_task;
 
-/**
- * Created by Dmytro on 025 25 08 2016.
- */
-public abstract class Employee {
-    String name;
-    char sex;
-    int id;
-    double salary;
-    int hour_rate;
+public abstract class Employee implements Salary {
 
-    Employee(){
-        id=0;
-        name="none";
-        sex='n';
-        salary=0.0;
-        hour_rate=0;
+    protected String name;
+    protected char sex;
+    protected int identifier;
+    protected double salary;
+    protected int hourRate;
+    protected double rate;
+    protected int hours;
+
+    Employee(final int identifier, final String name, final char sex) {
+        this.identifier = identifier;
+        this.name = name;
+        this.sex = sex;
     }
 
-    Employee(int id, String name, char sex, int hourRate){
-        this.id=id;
-        this.name=name;
-        this.sex=sex;
-        this.hour_rate=hourRate;
-    }
-
-    Employee(int id, String name, char sex, double salary){
-        this.id=id;
-        this.name=name;
-        this.sex=sex;
-        this.salary=salary;
-    }
+    abstract void printSalary();
 }

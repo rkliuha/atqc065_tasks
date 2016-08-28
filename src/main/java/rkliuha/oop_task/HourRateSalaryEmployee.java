@@ -2,9 +2,6 @@ package rkliuha.oop_task;
 
 public class HourRateSalaryEmployee extends Employee {
 
-    public static final double BASIC_BONUS_RATE = 8;
-    public static final double BASIC_MAIN_RATE = 20.8;
-
     private final double mainRate;
     private final double bonusRate;
     private final double hourRate;

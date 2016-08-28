@@ -2,8 +2,6 @@ package rkliuha.oop_task;
 
 public class FixedSalaryEmployee extends Employee {
 
-    public static final double BASIC_FIXED_SALARY = 10000;
-
     private final double fixedSalary;
 
     public FixedSalaryEmployee(final int id, final String name,

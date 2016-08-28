@@ -1,24 +1,25 @@
-package main.java.dshkliar.oop_task;
+package dshkliar.oop_task;
 
-/**
- * Created by Dmytro on 025 25 08 2016.
- */
-public class EmployeeWithHourRate extends Employee implements Salary {
+public class EmployeeWithHourRate extends Employee {
 
-    EmployeeWithHourRate(){
-        super();
+    EmployeeWithHourRate(final int identifier, final String name,
+                         final char sex, final int hourRate,
+                         final double rate, final int hours) {
+        super(identifier, name, sex);
+        this.hourRate = hourRate;
+        this.rate = rate;
+        this.hours = hours;
     }
 
-    EmployeeWithHourRate(int id, String name, char sex, int hourRate) {
-        super(id, name, sex, hourRate);
-    }
-
-    public double calculateSalary() {
-        salary = 20.8 * 8 * hour_rate;
+    final public double calculateSalary() {
+        salary = rate * hours * hourRate;
         return salary;
     }
 
-    public void printSalary() {
-        System.out.println("\tname: " + name + ";\n\tsex: " + sex + ";\n\tID: " + id + ";\n\tsalary: " + calculateSalary());
+    final void printSalary() {
+        System.out.println("\nInfomation for Employee With Hour Rate: ");
+        System.out.println("\tname: " + name + ";\n\tsex: " + sex
+                + ";\n\tID: " + identifier + ";\n\tsalary: "
+                + calculateSalary());
     }
 }

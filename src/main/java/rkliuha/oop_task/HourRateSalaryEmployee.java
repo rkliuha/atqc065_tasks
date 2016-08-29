@@ -29,4 +29,5 @@ public class HourRateSalaryEmployee extends Employee {
     public final void calculateSalary() {
         setSalary(mainRate * bonusRate * hourRate);
     }
+
 }

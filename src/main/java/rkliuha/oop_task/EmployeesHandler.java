@@ -21,4 +21,5 @@ public class EmployeesHandler {
         cain.printSalary();
         miranda.printSalary();
     }
+
 }

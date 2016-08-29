@@ -21,4 +21,5 @@ public class FixedSalaryEmployee extends Employee {
     public final void calculateSalary() {
         setSalary(fixedSalary);
     }
+
 }

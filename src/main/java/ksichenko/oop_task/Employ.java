@@ -8,9 +8,9 @@ abstract class Employ implements CalculateSalary {
     protected int id;
 
     public final void printSalary() {
-        System.out.println("Employ name: " + id);
-        System.out.println("Employ salary: " + name);
-        System.out.println("Employ id: " + salary);
+        System.out.println("Employ id: " + id);
+        System.out.println("Employ name: " + name);
+        System.out.println("Employ salary: " + salary);
     }
 
 }

@@ -29,7 +29,7 @@ public class EmployeeHourlySalary extends AbstractEmployee implements Salary {
 
     final public void printSalary() {
         System.out.println("Name: " + name + " ID: "
-                            + identifier + " Salary: " + salary);
+                + identifier + " Salary: " + salary);
 
     }
 }

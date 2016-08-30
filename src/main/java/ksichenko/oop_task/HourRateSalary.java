@@ -1,10 +1,12 @@
 package ksichenko.oop_task;
 
-public class HourRateSalary extends Employ {
+public class HourRateSalary extends Employee {
 
     protected int hourRate;
+    protected int workingPayed = 20;
+    protected int workingDays = 8;
 
-    public HourRateSalary(String name, String sex, String salary, int id, int hourRate) {
+    public HourRateSalary(final String name, final String sex, final String salary, final int id, final int hourRate) {
         this.name = name;
         this.sex = sex;
         this.salary = salary;
@@ -13,7 +15,7 @@ public class HourRateSalary extends Employ {
     }
 
     public void calculateSalary() {
-        double hourSalary = 20 * 8 * hourRate;
+        double hourSalary = workingPayed * workingDays * hourRate;
         System.out.println("Employ salary amount: " + hourSalary);
     }
 }

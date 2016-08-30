@@ -1,6 +1,6 @@
 package ksichenko.oop_task;
 
-abstract class Employ implements CalculateSalary {
+abstract class Employee implements CalculateSalary {
 
     protected String name;
     protected String sex;

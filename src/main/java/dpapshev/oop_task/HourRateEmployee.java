@@ -6,7 +6,7 @@ public class HourRateEmployee extends Employee {
     private int workingHours;
     private double workingDays;
 
-    HourRateEmployee(final String name, final String sex, int id, double hourRate) {
+    HourRateEmployee(final String name, final String sex, final int id, double hourRate) {
         this.name = name;
         this.sex = sex;
         this.id = id;
@@ -31,7 +31,6 @@ public class HourRateEmployee extends Employee {
     public double getWorkingDays() {
         return workingDays;
     }
-
 
     public void calculateSalary() {
         this.salary = workingDays * workingHours * hourRate;

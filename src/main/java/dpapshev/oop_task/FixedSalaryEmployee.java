@@ -3,7 +3,7 @@ package dpapshev.oop_task;
 
 public class FixedSalaryEmployee extends Employee {
 
-    FixedSalaryEmployee(final String name, final String sex, int id) {
+    FixedSalaryEmployee(final String name, final String sex, final int id) {
         this.name = name;
         this.sex = sex;
         this.id = id;
@@ -13,7 +13,6 @@ public class FixedSalaryEmployee extends Employee {
     public void setSalary(final double salary) {
         this.salary = salary;
     }
-
 
     public void calculateSalary() {
         this.salary = 10000;

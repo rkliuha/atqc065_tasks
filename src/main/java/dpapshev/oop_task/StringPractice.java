@@ -2,60 +2,73 @@ package dpapshev.oop_task;
 
 
 public class StringPractice {
+    public static void main(String[] args) {
+        final StringPractice practiceWithStrings = new StringPractice();
+        practiceWithStrings.printRandomStrings();
+        practiceWithStrings.letterCounter("a");
+        practiceWithStrings.printLetterCounter();
+        practiceWithStrings.addStrings();
+        practiceWithStrings.printCombinedStrings();
+        practiceWithStrings.replaceVowels();
+        practiceWithStrings.printStringWithoutVowels();
+        practiceWithStrings.countQuestions();
+        practiceWithStrings.printQuestionsQuantity();
 
-    private String text = new String("Grabbing the pinch and holding his body tight to the wall, Mikey danced his feet up and stabbed" +
+    }
+
+    private final String text = "Grabbing the pinch and holding his body tight to the wall, Mikey danced his feet up and stabbed" +
             " for a crimpy ear of granite. A thousand feet of plutonic rock on Yosemite’s Middle Cathedral swept out below him" +
-            " as he fought for the first free ascent of the foot Father ");
+            " as he fought for the first free ascent of the foot Father ";
 
-    private int aCounter = 0;
+    private int letterCounter = 0;
     private int questionsCounter = 0;
     private String randomStrings[] = text.split(" ");    //an array of 50 Strings. Maybe I needed to do a separate method?
     private String combinedStrings = randomStrings[0];
     private String stringWithoutVowels;
 
-    public void printRandomStrings() {
+    private void printRandomStrings() {
         for (int i = 0; i < randomStrings.length; i++) {
             System.out.println(randomStrings[i]);
         }
     }
 
-    // Count the number of string that have “a” in them
-    public void letterCounter() {
-        boolean a;
+    // Count the number of strings that have “a” in them
+    private void letterCounter(String letter) {
+        boolean stringContainsLetter;
         for (int i = 0; i < randomStrings.length; i++) {
-            a = randomStrings[i].contains("a");
-            if (a == true) {
-                aCounter++;
+            stringContainsLetter = randomStrings[i].contains(letter);
+            if (stringContainsLetter) {
+                letterCounter++;
             }
         }
     }
 
-    public void printLetterCounter() {
-        System.out.println("Numbers of Strings contains a = " + aCounter);
+    private void printLetterCounter() {
+        System.out.println("Numbers of Strings contains a = " + letterCounter);
     }
 
     //Combine all the strings from the randomStrings array into one string
-    public void addStrings() {
+    private void addStrings() {
         for (int i = 1; i < 50; i++) {
             combinedStrings = combinedStrings.concat(randomStrings[i]);
         }
     }
 
-    public void printCombinedStrings() {
+    private void printCombinedStrings() {
         System.out.println(combinedStrings);
     }
 
     // Replace all vowels (u, i, o, a, y, e) with question marks
-    public void replaceVowels() {
+    private void replaceVowels() {
         stringWithoutVowels = combinedStrings.replaceAll("[aeiouy]", "?");
     }
 
-    public void printStringWithoutVowels() {
+    private void printStringWithoutVowels() {
         System.out.println(stringWithoutVowels);
     }
 
     //Count question marks number
-    public void countQuestions() {
+    private void countQuestions() {
         for (int i = 0; i < stringWithoutVowels.toCharArray().length; i++) {
             if (stringWithoutVowels.toCharArray()[i] == '?') {
                 questionsCounter++;
@@ -63,7 +76,7 @@ public class StringPractice {
         }
     }
 
-    public void printQuestionsQuantity() {
+    private void printQuestionsQuantity() {
         System.out.println(questionsCounter);
     }
 }

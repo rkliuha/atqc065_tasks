@@ -1,4 +1,5 @@
 package dpapshev.oop_task;
+import java.util.*;
 
 
 public class FixedSalaryEmployee extends Employee {
@@ -10,12 +11,19 @@ public class FixedSalaryEmployee extends Employee {
         calculateSalary();
     }
 
+
     public void setSalary(final double salary) {
         this.salary = salary;
     }
 
     public void calculateSalary() {
-        this.salary = 10000;
+        this.salary = 10000.0;
     }
 }
+
+
+
+
+
+
 

@@ -1,12 +1,22 @@
 package dpapshev.oop_task;
-import java.util.regex.*;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegExpPractice {
-    String pattern;
-    String text = " ";
+    public static void main(String[] args) {
+        final String pattern = "^[A-Za-z0-9]+@[A-Za-z0-9]+\\.[a-z]{2,3}$";
 
-    Pattern p = Pattern.compile(pattern);
-    Matcher m = p.matcher(text);
-
-
+        System.out.println("Enter Email please: ");
+        final Scanner input = new Scanner(System.in);
+        final String text = input.nextLine();
+        final Pattern p = Pattern.compile(pattern);
+        final Matcher m = p.matcher(text);
+        if (m.matches()) {
+            System.out.println("TRUE");
+        } else {
+            System.out.println("FALSE");
+        }
+    }
 }

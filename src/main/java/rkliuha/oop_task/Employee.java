@@ -20,6 +20,12 @@ public abstract class Employee implements SalaryCalculator {
         System.out.println("Employee salary: " + getSalary() + "$\n");
     }
 
+    @Override
+    public final String toString() {
+        return "Id: " + getId() + "\tName: " + getName()
+                + "\tSex: " + getSex() + "\tSalary: " + getSalary();
+    }
+
     public final String getName() {
         return name;
     }

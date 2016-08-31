@@ -7,8 +7,14 @@ public class StringPractice {
     public static void main(final String[] args) {
 
         fillOutRandom(words);
+        System.out.println("Array is filled out:");
+        for (final String d : words) {
+            System.out.println(d);
+        }
 
-        countSymbol("o");
+        final int countOfSymbol = getCountOfSymbol(words, "o");
+        System.out.println("\nNumber of counted strings include symbol: \n"
+                + countOfSymbol);
 
         String comboString = getOneLineString(words);
 
@@ -18,8 +24,9 @@ public class StringPractice {
         comboString = getReplacedVowelsTo(comboString, '?');
         System.out.println("\nThe String after replacement: \n" + comboString);
 
-        final int countOfChar = getCountChar(comboString, '?');
+        final int countOfChar = getCountOfChar(comboString, '?');
         System.out.println("\nNumber of counted chars: \n" + countOfChar);
+
     }
 
     public static final void fillOutRandom(final String[] words) {
@@ -30,21 +37,17 @@ public class StringPractice {
                 words[i] += temp;
             }
         }
-        System.out.println("Array is filled out:");
-        for (final String d : words) {
-            System.out.println(d);
-        }
     }
 
-    public static final void countSymbol(final String symbol) {
+    public static final int getCountOfSymbol(final String[] words,
+                                             final String symbol) {
         int count = 0;
         for (final String y : words) {
             if (y.contains(symbol)) {
                 count++;
             }
         }
-        System.out.println("\nNumber of counted strings include symbol: \n"
-                + count);
+        return count;
     }
 
     public static final String getOneLineString(final String[] words) {
@@ -67,8 +70,8 @@ public class StringPractice {
         return comboString;
     }
 
-    public static final int getCountChar(final String comboString,
-                                         final char forCount) {
+    public static final int getCountOfChar(final String comboString,
+                                           final char forCount) {
         int countChar = 0;
         for (int i = 0; i < comboString.toCharArray().length; i++) {
             if (comboString.toCharArray()[i] == forCount) {
@@ -77,4 +80,5 @@ public class StringPractice {
         }
         return countChar;
     }
+
 }

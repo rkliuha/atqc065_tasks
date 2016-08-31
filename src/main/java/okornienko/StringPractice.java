@@ -1,14 +1,14 @@
-package okornienko.oop_task;
+package okornienko;
 
 import java.util.Random;
 
 public class StringPractice {
     static String unsortedString;
 
-    final static void randomStrings() {
+    private static void createRandomStrings() {
         final String allSymbols = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         final Random random = new Random();
-        final StringBuffer stringOfChars = new StringBuffer();
+        final StringBuilder stringOfChars = new StringBuilder();
         int select;
 
         for (int j = 0; j < 50; j++) { // 50 - це число строк, які потрібно створити
@@ -22,7 +22,7 @@ public class StringPractice {
         System.out.println(unsortedString);
     }
 
-    final static void countOfChars() {
+    private static void countChars() {
         int count = 0;
         for (
                 int i = 0; i < unsortedString.length(); i++) {
@@ -33,7 +33,7 @@ public class StringPractice {
         System.out.println("Total count of a = " + count); //виводим кількість символів "а"
     }
 
-    final static void replaceOfChars() {
+    private static void replaceChars() {
         unsortedString = unsortedString.replaceAll("\n", ""); // обєднюєм в один рядок
         unsortedString = unsortedString.replaceAll("[u,i,o,a,y,e]", "?"); // заміняєм u,i,o,a,y,e на ?
         System.out.println(unsortedString);
@@ -48,8 +48,8 @@ public class StringPractice {
     }
 
     public static void main(String[] args) {
-        randomStrings();
-        countOfChars();
-        replaceOfChars();
+        createRandomStrings();
+       countChars();
+        replaceChars();
     }
 }

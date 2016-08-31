@@ -1,5 +1,5 @@
 package okornienko.oop_task;
 
-public interface CalculateSalary {
+interface CalculateSalary {
     void calculateSalary();
 }

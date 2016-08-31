@@ -24,10 +24,10 @@ public class CollectionsPractice {
 
         showAllEmployers(employees);
         employees.sort((employee1, employee2) -> {
-            if (employee1.getemployeeSalary() == employee2.getemployeeSalary()) {
-                return employee1.getemployeeName().compareTo(employee2.getemployeeName());
+            if (employee1.getEmployeeSalary() == employee2.getEmployeeSalary()) {
+                return employee1.getEmployeeName().compareTo(employee2.getEmployeeName());
             } else {
-                return Double.compare(employee1.getemployeeSalary(), employee2.getemployeeSalary());
+                return Double.compare(employee1.getEmployeeSalary(), employee2.getEmployeeSalary());
             }
         });
         System.out.println("Sorting by salary, if salaries are equal, sorting by the name:");
@@ -55,8 +55,8 @@ public class CollectionsPractice {
     private static void showAllEmployers(final List<Employee> listEmployee) {
         for (Employee iterator : listEmployee) {
             iterator.calculateSalary();
-            System.out.println(iterator.getemployeeId() + ". " + iterator.getemployeeName() + " " +
-                    iterator.getemployeeSex() + " " + iterator.getemployeeSalary());
+            System.out.println(iterator.getEmployeeId() + ". " + iterator.getEmployeeName() + " " +
+                    iterator.getEmployeeSex() + " " + iterator.getEmployeeSalary());
 
         }
         System.out.println();
@@ -65,8 +65,8 @@ public class CollectionsPractice {
     private static void showFirstEmployers(final List<Employee> listEmployee, final int firstNumbers) {
         for (int i = 0; i < firstNumbers; i++) {
             listEmployee.get(i).calculateSalary();
-            System.out.println(listEmployee.get(i).getemployeeId() + ". " + listEmployee.get(i).getemployeeName() + " " +
-                    listEmployee.get(i).getemployeeSex() + " " + listEmployee.get(i).getemployeeSalary());
+            System.out.println(listEmployee.get(i).getEmployeeId() + ". " + listEmployee.get(i).getEmployeeName() + " " +
+                    listEmployee.get(i).getEmployeeSex() + " " + listEmployee.get(i).getEmployeeSalary());
 
         }
         System.out.println();
@@ -77,8 +77,8 @@ public class CollectionsPractice {
         int firstNumbers = listEmployee.size() - 1 - lastNumbers;
         for (int i = listEmployee.size() - 1; i > firstNumbers; i--) {
             listEmployee.get(i).calculateSalary();
-            System.out.println(listEmployee.get(i).getemployeeId() + ". " + listEmployee.get(i).getemployeeName() + " " +
-                    listEmployee.get(i).getemployeeSex() + " " + listEmployee.get(i).getemployeeSalary());
+            System.out.println(listEmployee.get(i).getEmployeeId() + ". " + listEmployee.get(i).getEmployeeName() + " " +
+                    listEmployee.get(i).getEmployeeSex() + " " + listEmployee.get(i).getEmployeeSalary());
 
         }
         System.out.println();
@@ -87,10 +87,10 @@ public class CollectionsPractice {
     private static void showMapedEmployers(final Map<Integer, Employee> employeesMap, final String male) {
 
         for (int i = 0; i < employeesMap.size(); i++) {
-            if (employeesMap.get(i).getemployeeSex().equals(male)) {
+            if (employeesMap.get(i).getEmployeeSex().equals(male)) {
                 employeesMap.get(i).calculateSalary();
-                System.out.println(employeesMap.get(i).getemployeeId() + ". " + employeesMap.get(i).getemployeeName() + " " + employeesMap.get(i).getemployeeSex() +
-                        " " + employeesMap.get(i).getemployeeSalary());
+                System.out.println(employeesMap.get(i).getEmployeeId() + ". " + employeesMap.get(i).getEmployeeName() + " " + employeesMap.get(i).getEmployeeSex() +
+                        " " + employeesMap.get(i).getEmployeeSalary());
             }
         }
     }

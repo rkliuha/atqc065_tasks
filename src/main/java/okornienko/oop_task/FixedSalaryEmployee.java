@@ -1,6 +1,6 @@
 package okornienko.oop_task;
 
- class FixedSalaryEmployee extends Employee {
+class FixedSalaryEmployee extends Employee {
     private double fixedSalary;
     private double bonusSalary;
 

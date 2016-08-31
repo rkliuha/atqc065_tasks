@@ -1,6 +1,6 @@
 package okornienko.oop_task;
 
- class HourRateEmployee extends Employee {
+class HourRateEmployee extends Employee {
     private double hourRate;
     private double hours;
     private double days;

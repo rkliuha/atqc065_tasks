@@ -1,6 +1,5 @@
 package okornienko.oop_task;
 
-import java.util.Comparator;
 
 public abstract class Employee implements CalculateSalary {
     int employeeId;
@@ -12,19 +11,19 @@ public abstract class Employee implements CalculateSalary {
         System.out.println(employeeId + ". " + employeeName + ", " + employeeSex + ", " + employeeSalary);
     }
 
-    final int getemployeeId() {
+    final int getEmployeeId() {
         return employeeId;
     }
 
-    final String getemployeeName() {
+    final String getEmployeeName() {
         return employeeName;
     }
 
-    final String getemployeeSex() {
+    final String getEmployeeSex() {
         return employeeSex;
     }
 
-    final double getemployeeSalary() {
+    final double getEmployeeSalary() {
         return employeeSalary;
     }
 }

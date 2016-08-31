@@ -4,15 +4,18 @@ import java.util.Random;
 
 class StringPractice {
 
+    final private int targetStringLength = 3;
     private String newString;
     String[] newArray = new String[50];
-    final private int leftLimit = 65;
-    final private int rightLimit = 90;
-    final private int targetStringLength = 3;
 
-/* This is used to create a random array with possible [A..Z] range */
+/* This method is used to create a random array
+    with possible [A..Z] range  and print it*/
 
-    public void generateRandomArray() {
+    public void task_5_2() {
+
+        final int leftLimit = 65;
+        final int rightLimit = 90;
+
         for (int i = 0; i < newArray.length; i++) {
 
             StringBuilder buffer = new StringBuilder(targetStringLength);
@@ -29,38 +32,44 @@ class StringPractice {
         }
     }
 
-/* This is used to count the number of string that have “a” character in them */
+/* This method is used to count the number of string
+    that have “a” character and printing them out */
 
-    public int countOccurrences(final String[] testArray, final char character) {
+    public void task_5_3(final String[] testArray, final char character) {
         int count = 0;
-        for (int i = 0; i < testArray.length; i++) {
-
-
+        for (String aTestArray : testArray) {
             for (int j = 0; j < targetStringLength; j++) {
-                if (testArray[i].charAt(j) == character) {
+                if (aTestArray.charAt(j) == character) {
                     count++;
                     break;
                 }
             }
         }
-        return count;
+        System.out.println("The number of 'A' occurrences in array: " + count);
     }
 
-    public String convertIntoOneString() {
+/*This method is used for combining all strings
+    from array into one and for replacement of
+    all vowels with question marks, and it prints out the result */
+
+    public void task_5_4() {
 
         StringBuilder builder = new StringBuilder();
-        for (String s : newArray) {
-            builder.append(s);
+        for (String element : newArray) {
+            builder.append(element);
         }
         builder.toString();
 
         String newBuilder = new String(builder);
 
-        newString = newBuilder.replaceAll("[AIEIOY]", "?");
-        return newString;
+        newString = newBuilder.replaceAll("[AIEUOY]", "?");
+        System.out.println(newString);
     }
 
-    public int countQuestionMarks() {
+/*This method is used for counting the number of question marks and
+    printing the number of occurrences out*/
+
+    public void task_5_5() {
         int count = 0;
 
         for (int i = 0; i < newString.length(); i++) {
@@ -68,10 +77,15 @@ class StringPractice {
                 count++;
             }
         }
-        return count;
-
+        System.out.println("The number of question marks found: " + count);
     }
 
+    public static void main(String[] args) {
+
+        final StringPractice test = new StringPractice();
+        test.task_5_2();
+        test.task_5_3(test.newArray, 'A');
+        test.task_5_4();
+        test.task_5_5();
+    }
 }
-
-

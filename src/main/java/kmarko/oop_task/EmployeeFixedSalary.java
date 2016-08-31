@@ -11,7 +11,7 @@ public class EmployeeFixedSalary extends AbstractEmployee implements Salary {
         this.salary = salary;
     }
 
-    final public double calculateSalary() {
+    final public double getCalculatedSalary() {
         return salary;
     }
 

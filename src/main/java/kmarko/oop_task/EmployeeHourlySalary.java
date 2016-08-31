@@ -12,17 +12,18 @@ public class EmployeeHourlySalary extends AbstractEmployee implements Salary {
         this.identifier = identifier;
         this.sex = sex;
         this.hourRate = hourRate;
+        getCalculatedSalary();
     }
 
-    final public void setWorkingHoursDay(int workingHoursDay) {
+    final public void setWorkingHoursDay(final int workingHoursDay) {
         this.workingHoursDay = workingHoursDay;
     }
 
-    final public void setSalaryCoefficient(double salaryCoefficient) {
+    final public void setSalaryCoefficient(final double salaryCoefficient) {
         this.salaryCoefficient = salaryCoefficient;
     }
 
-    final public double calculateSalary() {
+    final public double getCalculatedSalary() {
         salary = salaryCoefficient * workingHoursDay * hourRate;
         return salary;
     }

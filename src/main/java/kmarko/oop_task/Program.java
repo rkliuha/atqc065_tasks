@@ -7,13 +7,12 @@ public class Program {
         final EmployeeFixedSalary boichenko = new EmployeeFixedSalary("Ira", 7, 'F', 10000);
         boichenko.printSalary();
 
-        final EmployeeHourlySalary kondratuk = new EmployeeHourlySalary("Boris", 8, 'M', 5);
-        kondratuk.calculateSalary();
+        final EmployeeHourlySalary kondratuk = new EmployeeHourlySalary("Boris", 11, 'M', 5);
+        kondratuk.getCalculatedSalary();
         kondratuk.printSalary();
         kondratuk.setSalaryCoefficient(23.9);
         kondratuk.setWorkingHoursDay(9);
-        kondratuk.calculateSalary();
+        kondratuk.getCalculatedSalary();
         kondratuk.printSalary();
     }
-
 }

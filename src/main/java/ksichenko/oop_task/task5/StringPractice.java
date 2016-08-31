@@ -1,4 +1,4 @@
-package ksichenko.oop_task;
+package ksichenko.oop_task.task5;
 
 import java.util.Random;
 

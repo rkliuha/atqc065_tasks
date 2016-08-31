@@ -4,15 +4,13 @@ public class Action {
 
     public static void main(String[] args) {
 
-        final Employee ksichenko = new FixedSalaryEmploy("Sichenko", "male", "fixed", 1);
+        final Employees ksichenko = new FixedSalaryEmploy("Sichenko", "male", 1);
 
-        final Employee kmarko = new HourRateSalary("Marko", "female", "hourRate", 4, 30);
+        final Employees kmarko = new HourRateSalary("Marko", "female", 4, 30);
 
         ksichenko.printSalary();
-        ksichenko.calculateSalary();
-
         kmarko.printSalary();
-        kmarko.calculateSalary();
+
 
     }
 }

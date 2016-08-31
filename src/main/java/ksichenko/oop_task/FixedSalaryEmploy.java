@@ -1,17 +1,17 @@
 package ksichenko.oop_task;
 
-public class FixedSalaryEmploy extends Employee {
+public class FixedSalaryEmploy extends Employees {
 
     protected int fixedSalary = 10000;
 
-    public FixedSalaryEmploy(final String name, final String sex, final String salary, final int id) {
+    public FixedSalaryEmploy(final String name, final String sex, final int id) {
         this.name = name;
         this.sex = sex;
-        this.salary = salary;
         this.id = id;
+        calculateAndPrintSalary();
     }
 
-    public void calculateSalary() {
-        System.out.println("Employ salary amount: " + fixedSalary);
+    public void calculateAndPrintSalary() {
+        salary = fixedSalary;
     }
 }

@@ -1,5 +1,7 @@
 package kmarko.oop_task;
 
+import org.testng.annotations.Test;
+
 public class Program {
 
     public static void main(String[] args) {

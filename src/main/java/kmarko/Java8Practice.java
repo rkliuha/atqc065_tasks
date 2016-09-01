@@ -21,6 +21,7 @@ public class Java8Practice {
             num[i] = randomNumbersList.get(i);
         }
 
+
         System.out.println("Min number: " + randomNumbersList
                 .stream()
                 .min(Integer::compareTo)
@@ -43,7 +44,7 @@ public class Java8Practice {
 
         stringCollection
                 .stream()
-                .map((s) -> s + "10")
+                .map((everyElement) -> everyElement + "10")
                 .collect(Collectors.toList()).forEach(System.out::print);
     }
 }

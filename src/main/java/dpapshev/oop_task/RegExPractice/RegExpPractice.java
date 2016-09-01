@@ -1,4 +1,4 @@
-package dpapshev.oop_task;
+package dpapshev.oop_task.RegExPractice;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -11,9 +11,9 @@ public class RegExpPractice {
         System.out.println("Enter Email please: ");
         final Scanner input = new Scanner(System.in);
         final String text = input.nextLine();
-        final Pattern p = Pattern.compile(pattern);
-        final Matcher m = p.matcher(text);
-        if (m.matches()) {
+        final Pattern sample = Pattern.compile(pattern);
+        final Matcher matcher = sample.matcher(text);
+        if (matcher.matches()) {
             System.out.println("TRUE");
         } else {
             System.out.println("FALSE");

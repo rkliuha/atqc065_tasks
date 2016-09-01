@@ -1,4 +1,4 @@
-package dpapshev.oop_task;
+package dpapshev.oop_task.StringPractice;
 
 
 public class StringPractice {
@@ -16,8 +16,10 @@ public class StringPractice {
 
     }
 
-    private final String text = "Grabbing the pinch and holding his body tight to the wall, Mikey danced his feet up and stabbed" +
-            " for a crimpy ear of granite. A thousand feet of plutonic rock on Yosemite’s Middle Cathedral swept out below him" +
+    private final String text = "Grabbing the pinch and holding his body tight to the wall," +
+            " Mikey danced his feet up and stabbed" +
+            " for a crimpy ear of granite. A thousand feet of plutonic rock on Yosemite’s" +
+            " Middle Cathedral swept out below him" +
             " as he fought for the first free ascent of the foot Father ";
 
     private int letterCounter = 0;
@@ -33,7 +35,7 @@ public class StringPractice {
     }
 
     // Count the number of strings that have “a” in them
-    private void letterCounter(String letter) {
+    private void letterCounter(final String letter) {
         boolean stringContainsLetter;
         for (int i = 0; i < randomStrings.length; i++) {
             stringContainsLetter = randomStrings[i].contains(letter);

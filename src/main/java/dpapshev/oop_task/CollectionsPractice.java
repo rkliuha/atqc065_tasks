@@ -1,14 +1,18 @@
 package dpapshev.oop_task;
 
+import dpapshev.oop_task.Employee;
+import dpapshev.oop_task.FixedSalaryEmployee;
+import dpapshev.oop_task.HourRateEmployee;
+
 import java.util.*;
 
 public class CollectionsPractice {
 
     public static void main(String[] args) {
 
-        List<FixedSalaryEmployee> fixedSalaryEmployees = new LinkedList<FixedSalaryEmployee>();
-        List<HourRateEmployee> hourRateEmployees = new LinkedList<HourRateEmployee>();
-        Map<Integer, Employee> mapOfEmployees = new HashMap<Integer, Employee>();
+        final List<FixedSalaryEmployee> fixedSalaryEmployees = new LinkedList<FixedSalaryEmployee>();
+        final List<HourRateEmployee> hourRateEmployees = new LinkedList<HourRateEmployee>();
+        final Map<Integer, Employee> mapOfEmployees = new HashMap<Integer, Employee>();
 
         fixedSalaryEmployees.add(new FixedSalaryEmployee("Dima", "male", 1));
         fixedSalaryEmployees.add(new FixedSalaryEmployee("Kola", "male", 2));
@@ -51,28 +55,28 @@ public class CollectionsPractice {
         printMapOfEmployeesBasedOnGender(mapOfEmployees, "male");
     }
 
-    public void printListOfEmployees(List<? extends Employee> listOfEmployees) {
+    public void printListOfEmployees(final List<? extends Employee> listOfEmployees) {
         for (int i = 0; i < listOfEmployees.size(); i++) {
             listOfEmployees.get(i).printSalary();
         }
     }
 
-    private static void printFewLastEmployeesFromList(List<? extends Employee> listOfEmployees, final int quantityOfFewLastEmployees) {
+    private static void printFewLastEmployeesFromList(final List<? extends Employee> listOfEmployees, final int quantityOfFewLastEmployees) {
         for (int j = listOfEmployees.size() - 1; j >= listOfEmployees.size() - quantityOfFewLastEmployees; j--) {
             listOfEmployees.get(j).printSalary();
         }
     }
 
-    private static void printFewFirstEmployeesFromList(List<? extends Employee> listOfEmployees, final int quantityOfFewFirstEmployees) {
+    private static void printFewFirstEmployeesFromList(final List<? extends Employee> listOfEmployees, final int quantityOfFewFirstEmployees) {
         for (int j = 0; j < quantityOfFewFirstEmployees; j++) {
             listOfEmployees.get(j).printSalary();
         }
     }
 
-    private static void printMapOfEmployeesBasedOnGender(Map<Integer, Employee> employeeMap, String sex) {
-        Iterator<Map.Entry<Integer, Employee>> entries = employeeMap.entrySet().iterator();
+    private static void printMapOfEmployeesBasedOnGender(final Map<Integer, Employee> employeeMap, final String sex) {
+        final Iterator<Map.Entry<Integer, Employee>> entries = employeeMap.entrySet().iterator();
         while (entries.hasNext()) {
-            Map.Entry<Integer, Employee> entry = entries.next();
+            final Map.Entry<Integer, Employee> entry = entries.next();
             if (entry.getValue().sex.equalsIgnoreCase(sex)) {
                 entry.getValue().printSalary();
             }

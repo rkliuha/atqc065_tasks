@@ -8,11 +8,11 @@ abstract class Employee implements SalaryCalculator, Comparable<Employee> {
     protected double salary;
 
 
-    public int compareTo(Employee o) {
-        if (this.salary - o.salary == 0) {
-            return this.name.compareTo(o.name);
+    public int compareTo(final Employee employee) {
+        if (this.salary - employee.salary == 0) {
+            return this.name.compareTo(employee.name);
         } else {
-            return Double.compare(o.salary, this.salary);
+            return Double.compare(employee.salary, this.salary);
         }
     }
 

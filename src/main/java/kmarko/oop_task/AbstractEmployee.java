@@ -20,7 +20,7 @@ public abstract class AbstractEmployee implements Comparable<AbstractEmployee> {
                 ", salary=" + salary;
     }
 
-    public int compareTo(AbstractEmployee employee1) {
+    final public int compareTo(AbstractEmployee employee1) {
         double compareSalary = employee1.salary - salary;
         if (compareSalary != 0) {
             return (int) compareSalary;

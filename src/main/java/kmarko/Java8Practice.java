@@ -16,9 +16,9 @@ public class Java8Practice {
         }
 
         Collections.shuffle(randomNumbersList);
-        int[] num = new int[randomNumbersList.size()];
+        int[] numbers = new int[randomNumbersList.size()];
         for (int i = 0; i < randomNumbersList.size(); i++) {
-            num[i] = randomNumbersList.get(i);
+            numbers[i] = randomNumbersList.get(i);
         }
 
 
@@ -39,7 +39,7 @@ public class Java8Practice {
 
         /*Task_7_3*/
         final String forStringCollectionCreation = "grtfh, jfkdf, jeooejf, opoe, khjhf";
-        List<String> stringCollection = new ArrayList<>(Arrays
+        final List<String> stringCollection = new ArrayList<>(Arrays
                 .asList(StringUtils.splitString(forStringCollectionCreation, ",")));
 
         stringCollection

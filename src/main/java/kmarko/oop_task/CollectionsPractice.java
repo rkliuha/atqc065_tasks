@@ -68,7 +68,10 @@ public class CollectionsPractice {
         }
     }
 
-    final public void printFirstFiveEmployeeFixedSalaryList(final int firstItemsInList) {
+    //This method's parameter passes value which is calculated: firstItemsInList= (- 1) +
+    // employeeFixedSalaryList.size - number of items to print;
+
+    final public void printFirstEmployeeFixedSalaryList(final int firstItemsInList) {
         for (int i = 0; i < employeeFixedSalaryList.size(); i++) {
             System.out.println(employeeFixedSalaryList.get(i).name);
             if (i == firstItemsInList) {
@@ -77,7 +80,10 @@ public class CollectionsPractice {
         }
     }
 
-    final public void printFirstFiveEmployeeHourlySalaryList(final int firstItemsInList) {
+    //This method's parameter passes value which is calculated: firstItemsInList= (- 1) +
+    // employeeHourlySalaryList.size - number of items to print;
+
+    final public void printFirstEmployeeHourlySalaryList(final int firstItemsInList) {
         for (int i = 0; i < employeeHourlySalaryList.size(); i++) {
             System.out.println(employeeHourlySalaryList.get(i).name);
             if (i == firstItemsInList) {
@@ -86,7 +92,10 @@ public class CollectionsPractice {
         }
     }
 
-    final public void printLastThreeIdEmployeeFixedSalaryList(final int lastItemsInList) {
+    //This method's parameter passes value which is calculated: lastItemsInList=
+    // employeeFixedSalaryList.size - number of of items to print;
+
+    final public void printLastIdEmployeeFixedSalaryList(final int lastItemsInList) {
         for (int i = employeeFixedSalaryList.size() - 1; i >= 0; i--) {
             System.out.println(employeeFixedSalaryList.get(i).identifier);
             if (i == lastItemsInList) {
@@ -95,7 +104,10 @@ public class CollectionsPractice {
         }
     }
 
-    final public void printLastThreeIdEmployeeHourlySalaryList(final int lastItemsInList) {
+    //This method's parameter passes value which is calculated: lastItemsInList=
+    // employeeHourlySalaryList.size - number of of items to print;
+
+    final public void printLastIdEmployeeHourlySalaryList(final int lastItemsInList) {
         for (int i = employeeHourlySalaryList.size() - 1; i >= 0; i--) {
             System.out.println(employeeHourlySalaryList.get(i).identifier);
             if (i == lastItemsInList) {
@@ -104,7 +116,7 @@ public class CollectionsPractice {
         }
     }
 
-    final public void Task_6_6() {
+    final public void task_6_6() {
 
         newEmployeeList.put(1, dzhus);
         newEmployeeList.put(2, myshuga);
@@ -117,8 +129,10 @@ public class CollectionsPractice {
         newEmployeeList.put(9, reva);
         newEmployeeList.put(10, kuzmin);
 
-        newEmployeeList.entrySet().stream().filter(entry -> entry.getValue().sex == 'M').forEach(entry ->
-                System.out.println(entry.getKey() + " " + entry.getValue()));
+        newEmployeeList.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().sex == 'M')
+                .forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
     }
 
     public static void main(String[] args) {
@@ -137,14 +151,14 @@ public class CollectionsPractice {
         newHourlyEmployeeList.sortEmployeeHourlySalaryList();
 
         /*Task_6_4*/
-        newFixedEmployeeList.printFirstFiveEmployeeFixedSalaryList(4);
-        newHourlyEmployeeList.printFirstFiveEmployeeHourlySalaryList(4);
+        newFixedEmployeeList.printFirstEmployeeFixedSalaryList(4);
+        newHourlyEmployeeList.printFirstEmployeeHourlySalaryList(4);
 
         /*Task_6_5*/
-        newFixedEmployeeList.printLastThreeIdEmployeeFixedSalaryList(7);
-        newHourlyEmployeeList.printLastThreeIdEmployeeHourlySalaryList(7);
+        newFixedEmployeeList.printLastIdEmployeeFixedSalaryList(7);
+        newHourlyEmployeeList.printLastIdEmployeeHourlySalaryList(7);
 
-        /*Task_6_6*/
-        newFixedEmployeeList.Task_6_6();
+        /*task_6_6*/
+        newFixedEmployeeList.task_6_6();
     }
 }

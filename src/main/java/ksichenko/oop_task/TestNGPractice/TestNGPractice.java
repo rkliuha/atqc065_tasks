@@ -31,9 +31,9 @@ public class TestNGPractice {
     }
 
     @Test(dataProvider = "dataProvider0", dependsOnMethods = {"testMethod0"})
-    public static void testMethod1() {
+    public static void testMethod1(final String method) {
 
-        System.out.println("This is method 1");
+        System.out.println("This is : " + method);
     }
 
     @DataProvider(name = "dataProvider1")
@@ -46,9 +46,9 @@ public class TestNGPractice {
     }
 
     @Test(dataProvider = "dataProvider1", dependsOnMethods = {"testMethod1"})
-    public static void testMethod2() {
+    public static void testMethod2(final String method) {
 
-        System.out.println("This is method 2");
+        System.out.println("This is : " + method);
     }
 
     @DataProvider(name = "dataProvider2")
@@ -61,9 +61,9 @@ public class TestNGPractice {
     }
 
     @Test(dataProvider = "dataProvider2", dependsOnMethods = {"testMethod2"})
-    public static void testMethod3() {
+    public static void testMethod3(final String method) {
 
-        System.out.println("This is method 3");
+        System.out.println("This is : " + method);
     }
 
     @DataProvider(name = "dataProvider3")
@@ -76,9 +76,9 @@ public class TestNGPractice {
     }
 
     @Test(dataProvider = "dataProvider3", dependsOnMethods = {"testMethod3"})
-    public static void testMethod4() {
+    public static void testMethod4(final String method) {
 
-        System.out.println("This is method 4");
+        System.out.println("This is : " + method);
     }
 
 }

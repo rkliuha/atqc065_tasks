@@ -16,10 +16,6 @@ public class Java8Practice {
             randomNumbersList.add(random.nextInt(100));
         }
 
-//        randomNumbersList
-//                .stream()
-//                .map(integer -> randomNumbersList.add(random.nextInt(100)));
-
         System.out.println(randomNumbersList
                 .stream()
                 .min(Integer::compareTo).get());

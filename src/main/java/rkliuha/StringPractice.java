@@ -42,8 +42,8 @@ public class StringPractice {
     public static final int getCountOfSymbol(final String[] words,
                                              final String symbol) {
         int count = 0;
-        for (final String y : words) {
-            if (y.contains(symbol)) {
+        for (final String word : words) {
+            if (word.contains(symbol)) {
                 count++;
             }
         }
@@ -52,8 +52,8 @@ public class StringPractice {
 
     public static final String getOneLineString(final String[] words) {
         String comboString = "";
-        for (final String d : words) {
-            comboString += d;
+        for (final String word : words) {
+            comboString += word;
         }
         return comboString;
     }

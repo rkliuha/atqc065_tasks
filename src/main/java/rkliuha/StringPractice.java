@@ -8,8 +8,8 @@ public class StringPractice {
 
         fillOutRandom(words);
         System.out.println("Array is filled out:");
-        for (final String d : words) {
-            System.out.println(d);
+        for (final String word : words) {
+            System.out.println(word);
         }
 
         final int countOfSymbol = getCountOfSymbol(words, "o");

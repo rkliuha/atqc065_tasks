@@ -1,8 +1,8 @@
 package okornienko.oop_task;
 
 class FixedSalaryEmployee extends Employee {
-    private double fixedSalary;
-    private double bonusSalary;
+    private final double fixedSalary;
+    private final double bonusSalary;
 
     FixedSalaryEmployee(final int employeeId, final String employeeName, final String employeeSex,
                         final double fixedSalary, final double bonusSalary) {

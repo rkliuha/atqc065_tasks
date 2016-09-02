@@ -3,7 +3,8 @@ package okornienko;
 import java.util.Random;
 
 public class StringPractice {
-    static String unsortedString;
+    private static String unsortedString;
+    private static int count;
 
     private static void createRandomStrings() {
         final String allSymbols = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -11,10 +12,10 @@ public class StringPractice {
         final StringBuilder stringOfChars = new StringBuilder();
         int select;
 
-        for (int j = 0; j < 50; j++) { // 50 - це число строк, які потрібно створити
-            for (int i = 0; i < 10; i++) { // 10 - це кількість символів на одній строці
-                select = random.nextInt(allSymbols.length()); // отримуєм випадкове число в межах строки allSymbols
-                stringOfChars.append(allSymbols.charAt(select)); // заносим випадковий символ в stringOfChars
+        for (int j = 0; j < 50; j++) {
+            for (int i = 0; i < 10; i++) {
+                select = random.nextInt(allSymbols.length());
+                stringOfChars.append(allSymbols.charAt(select));
             }
             stringOfChars.append("\n");
         }
@@ -23,33 +24,32 @@ public class StringPractice {
     }
 
     private static void countChars() {
-        int count = 0;
-        for (
-                int i = 0; i < unsortedString.length(); i++) {
+        count = 0;
+        for (int i = 0; i < unsortedString.length(); i++) {
             if (unsortedString.charAt(i) == 'a') {
                 count++;
             }
         }
-        System.out.println("Total count of a = " + count); //виводим кількість символів "а"
+        System.out.println("Total count of a = " + count);
     }
 
     private static void replaceChars() {
-        unsortedString = unsortedString.replaceAll("\n", ""); // обєднюєм в один рядок
-        unsortedString = unsortedString.replaceAll("[u,i,o,a,y,e]", "?"); // заміняєм u,i,o,a,y,e на ?
+        unsortedString = unsortedString.replaceAll("\n", "");
+        unsortedString = unsortedString.replaceAll("[u,i,o,a,y,e]", "?");
         System.out.println(unsortedString);
 
-        int count = 0;
+        count = 0;
         for (int i = 0; i < unsortedString.length(); i++) {
             if (unsortedString.charAt(i) == '?') {
                 count++;
             }
         }
-        System.out.println("Total count of ? = " + count); //виводим кількість символів "?"
+        System.out.println("Total count of ? = " + count);
     }
 
     public static void main(String[] args) {
         createRandomStrings();
-       countChars();
+        countChars();
         replaceChars();
     }
 }

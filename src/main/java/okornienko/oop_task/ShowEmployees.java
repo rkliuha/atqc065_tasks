@@ -17,11 +17,11 @@ public final class ShowEmployees {
         final Employee rkliuha = new HourRateEmployee(2, "Kvita", "female", 80, hours, days);
         final Employee aladin = new HourRateEmployee(4, "Aladin", "male", 90, hours, days);
 
-        final Employee[] allEmployees = {okorn, rkliuha, kmarko, aladin};
+        final Employee[] employees = {okorn, kmarko, rkliuha, aladin};
 
-        for (Employee allEmployee : allEmployees) {
-            allEmployee.calculateSalary();
-            allEmployee.printSalary();
+        for (Employee employee : employees) {
+            employee.calculateSalary();
+            employee.printSalary();
         }
 
     }

@@ -4,11 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 class Animal {
-     private Animal(final String nameAnimal, final int ageAnimal, final double weightAnimal) {
+    private Animal(final String nameAnimal, final int ageAnimal, final double weightAnimal) {
         this.nameAnimal = nameAnimal;
         this.ageAnimal = ageAnimal;
         this.weightAnimal = weightAnimal;
     }
+
     private String nameAnimal;
     private int ageAnimal;
     private double weightAnimal;

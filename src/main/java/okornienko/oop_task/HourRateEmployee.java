@@ -1,9 +1,9 @@
 package okornienko.oop_task;
 
 class HourRateEmployee extends Employee {
-    private double hourRate;
-    private double hours;
-    private double days;
+    private final double hourRate;
+    private final double hours;
+    private final double days;
 
     HourRateEmployee(final int employeeId, final String employeeName, final String employeeSex,
                      final double hourRate, final double hours, final double days) {

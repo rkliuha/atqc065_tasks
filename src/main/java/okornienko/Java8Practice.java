@@ -3,7 +3,8 @@ package okornienko;
 import java.util.*;
 
 public class Java8Practice {
-    final static int someNumber = 15;
+    private final static int someNumber = 15;
+
     public static void main(String[] args) {
         final List<Integer> myIntegerList = Arrays.asList(48, 92, 246, 188);
         System.out.println("Printing numbers:");
@@ -32,7 +33,8 @@ public class Java8Practice {
                 .stream().map((s) -> s + someNumber)
                 .forEach(System.out::println);
     }
-    private static void printArray(final List array){
+
+    private static void printArray(final List array) {
         array.forEach(System.out::println);
     }
 }

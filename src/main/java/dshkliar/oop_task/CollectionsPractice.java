@@ -41,7 +41,7 @@ public class CollectionsPractice {
         }
     }
 
-    public void printLastFromListFixedSalary(final int limit) {
+    private void printLastFromListFixedSalary(final int limit) {
         System.out.println("Last " + limit + " From List Fixed Salary: ");
         for (Employee employee : listFixedSalary) {
             if ((listFixedSalary.size() - listFixedSalary.indexOf(employee)) <= limit) {
@@ -121,15 +121,15 @@ public class CollectionsPractice {
 
 
     public static void main(String[] args) {
-        CollectionsPractice coll = new CollectionsPractice();
-        coll.addInToListFixedSalary();
-        coll.addInToListHourRate();
-        coll.sortListFixedSalary();
-        coll.sortListHourRate();
-        coll.printFirstFromListFixedSalary(5);
-        coll.printFirstFromListHourRate(5);
-        coll.printLastFromListFixedSalary(3);
-        coll.printLastFromListHourRate(3);
-        coll.putMapFixed();
+        final CollectionsPractice collectionPracticeObject = new CollectionsPractice();
+        collectionPracticeObject.addInToListFixedSalary();
+        collectionPracticeObject.addInToListHourRate();
+        collectionPracticeObject.sortListFixedSalary();
+        collectionPracticeObject.sortListHourRate();
+        collectionPracticeObject.printFirstFromListFixedSalary(5);
+        collectionPracticeObject.printFirstFromListHourRate(5);
+        collectionPracticeObject.printLastFromListFixedSalary(3);
+        collectionPracticeObject.printLastFromListHourRate(3);
+        collectionPracticeObject.putMapFixed();
     }
 }

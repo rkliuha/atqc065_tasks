@@ -1,7 +1,5 @@
 package dshkliar.oop_task;
 
-import java.util.Comparator;
-
 public abstract class Employee implements Salary, Comparable<Employee> {
 
     protected String name;
@@ -42,14 +40,15 @@ public abstract class Employee implements Salary, Comparable<Employee> {
         }
     }*/
 
-    public int compareTo(Employee e1) {
-        double compSal = e1.salary - salary;
-        if (compSal != 0) {
-            return (int)compSal;
+    public int compareTo(final Employee employee) {
+        double compareSalary = employee.salary - salary;
+        if (compareSalary != 0) {
+            return (int) compareSalary;
         } else {
-            compSal=name.compareTo(e1.name);
-        } if(compSal != 0) {
-            return (int) compSal;
+            compareSalary = name.compareTo(employee.name);
+        }
+        if (compareSalary != 0) {
+            return (int) compareSalary;
         } else {
             return 0;
         }

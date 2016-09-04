@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class TestNGPractice {
 
     @DataProvider
-    public Object[][] testData() {
+    final public Object[][] testData() {
         return new Object[][]{
                 {"This is method", 0},
                 {"This is method", 1},

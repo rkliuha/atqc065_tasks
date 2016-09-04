@@ -41,8 +41,8 @@ public class Java8Practice {
         stringList.add("list ");
         stringList.add("collection.");
 
-        for (String str : stringList) {
-            System.out.print(str);
+        for (String string : stringList) {
+            System.out.print(string);
         }
 
         stringList.stream()
@@ -58,7 +58,7 @@ public class Java8Practice {
 
 
     public static void main(String[] args) {
-        Java8Practice javaPractice = new Java8Practice();
+        final Java8Practice javaPractice = new Java8Practice();
         javaPractice.randomNumbersList();
         javaPractice.getMax();
         javaPractice.getMin();

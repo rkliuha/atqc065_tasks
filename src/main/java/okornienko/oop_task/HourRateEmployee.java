@@ -1,14 +1,12 @@
 package okornienko.oop_task;
 
-/**
- * Created by Aleksandr on 25-08-16.
- */
-public class HourRateEmployee extends Employees  {
-    private double hourRate;
-    private double hours;
-    private double days;
+class HourRateEmployee extends Employee {
+    private final double hourRate;
+    private final double hours;
+    private final double days;
 
-    HourRateEmployee(int employeeId, String employeeName, String employeeSex, double hourRate, double hours, double days) {
+    HourRateEmployee(final int employeeId, final String employeeName, final String employeeSex,
+                     final double hourRate, final double hours, final double days) {
         this.hourRate = hourRate;
         this.employeeId = employeeId;
         this.employeeName = employeeName;
@@ -17,11 +15,8 @@ public class HourRateEmployee extends Employees  {
         this.days = days;
     }
 
-   public final double calculateSalary() {
-       employeeSalary = days * hours * hourRate;
-       return employeeSalary;
+    public final void calculateSalary() {
+        employeeSalary = days * hours * hourRate;
     }
-
-    ;
 }
 

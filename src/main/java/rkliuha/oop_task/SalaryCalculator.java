@@ -7,4 +7,5 @@ public interface SalaryCalculator {
     double BASIC_MAIN_RATE = 20.8;
 
     void calculateSalary();
+
 }

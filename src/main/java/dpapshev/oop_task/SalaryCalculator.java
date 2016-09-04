@@ -1,6 +1,6 @@
 package dpapshev.oop_task;
 
 
-public interface SalaryCalc {
+public interface SalaryCalculator {
     void calculateSalary();
 }

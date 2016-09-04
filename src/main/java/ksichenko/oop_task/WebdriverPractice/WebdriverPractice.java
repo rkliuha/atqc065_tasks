@@ -1,4 +1,4 @@
-package ksichenko.oop_task.WebDriverPractice;
+package ksichenko.oop_task.WebdriverPractice;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
-public class WebDriverPractice {
+public class WebdriverPractice {
 
     private final WebDriver driver = new FirefoxDriver();
 

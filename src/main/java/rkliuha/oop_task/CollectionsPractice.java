@@ -1,12 +1,16 @@
 package rkliuha.oop_task;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class CollectionsPractice {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         final List<FixedSalaryEmployee> fixedSalaryEmployees = new LinkedList<>();
+
         fixedSalaryEmployees.add(new FixedSalaryEmployee(0, "Roman", "Male", 15000));
         fixedSalaryEmployees.add(new FixedSalaryEmployee(1, "Yuriy", "Male", 2000));
         fixedSalaryEmployees.add(new FixedSalaryEmployee(2, "Dima", "Male"));
@@ -19,6 +23,7 @@ public class CollectionsPractice {
         fixedSalaryEmployees.add(new FixedSalaryEmployee(9, "Ignat", "Male", 6700));
 
         final List<HourRateSalaryEmployee> hourRateSalaryEmployees = new LinkedList<>();
+
         hourRateSalaryEmployees.add(new HourRateSalaryEmployee(0, "Ignat", "Male", 68));
         hourRateSalaryEmployees.add(new HourRateSalaryEmployee(1, "Brad", "Male", 64));
         hourRateSalaryEmployees.add(new HourRateSalaryEmployee(2, "Atma", "Female", 78));
@@ -31,6 +36,7 @@ public class CollectionsPractice {
         hourRateSalaryEmployees.add(new HourRateSalaryEmployee(9, "Roman", "Male", 120));
 
         final Map<Integer, Employee> employees = new HashMap<>();
+
         employees.put(1, new FixedSalaryEmployee(0, "Roman", "Male", 15000));
         employees.put(2, new FixedSalaryEmployee(1, "Yuriy", "Male", 2000));
         employees.put(3, new FixedSalaryEmployee(2, "Dima", "Male"));
@@ -84,13 +90,12 @@ public class CollectionsPractice {
     }
 
     public static final void printOutNamesByGender(final Map<Integer, Employee> employees,
-                                               final String gender) {
-        for (Map.Entry<Integer, Employee> entry : employees.entrySet()) {
-            if (entry.getValue().getSex().equals(gender)) {
-                System.out.println(entry.getKey());
-                System.out.println(entry.getValue().getName());
-            }
-        }
+                                                   final String gender) {
+        employees.entrySet().stream().filter(entry
+                -> entry.getValue().getSex().equals(gender)).forEach(entry -> {
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+        });
     }
 
 }

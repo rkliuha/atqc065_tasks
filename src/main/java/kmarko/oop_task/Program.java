@@ -1,19 +1,20 @@
 package kmarko.oop_task;
 
+import org.testng.annotations.Test;
+
 public class Program {
 
     public static void main(String[] args) {
 
-        EmployeeFixedSalary kit = new EmployeeFixedSalary("Ira", 7, 'F', 10000);
-        kit.printSalary();
+        final EmployeeFixedSalary boichenko = new EmployeeFixedSalary("Ira", 7, 'F', 10000);
+        boichenko.printSalary();
 
-        EmployeeHourlySalary vit = new EmployeeHourlySalary("Boris", 8, 'M', 5);
-        vit.calculateSalary();
-        vit.printSalary();
-        vit.setSalaryCoefficient(23.9);
-        vit.setWorkingHoursDay(9);
-        vit.calculateSalary();
-        vit.printSalary();
+        final EmployeeHourlySalary kondratuk = new EmployeeHourlySalary("Boris", 11, 'M', 5);
+        kondratuk.getCalculatedSalary();
+        kondratuk.printSalary();
+        kondratuk.setSalaryCoefficient(23.9);
+        kondratuk.setWorkingHoursDay(9);
+        kondratuk.getCalculatedSalary();
+        kondratuk.printSalary();
     }
-
 }

@@ -14,7 +14,7 @@ abstract class Employees implements CalculateSalary, Comparable<Employees> {
     }
 
 
-    public int compareTo(final Employees employees) {
+    public int compareTo(Employees employees) {
         if (salary != employees.salary) {
             return Double.compare(salary, employees.salary);
         } else

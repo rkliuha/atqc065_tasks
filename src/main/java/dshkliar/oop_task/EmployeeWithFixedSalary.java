@@ -8,7 +8,7 @@ public class EmployeeWithFixedSalary extends Employee {
         this.salary = salary;
     }
 
-    final public double calculateSalary() {
+    final public double getCalculatedSalary() {
         return salary;
     }
 
@@ -16,6 +16,6 @@ public class EmployeeWithFixedSalary extends Employee {
         System.out.println("\nInfomation for Employee With Fixed Price: ");
         System.out.println("\tname: " + name + ";\n\tsex: " + sex
                 + ";\n\tID: " + identifier + ";\n\tsalary: "
-                + calculateSalary());
+                + getCalculatedSalary());
     }
 }

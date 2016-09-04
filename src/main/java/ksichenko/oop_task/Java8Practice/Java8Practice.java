@@ -3,18 +3,18 @@ package ksichenko.oop_task.Java8Practice;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class Java8Practice {
-
     public static void main(String[] args) {
 
         final Random random = new Random();
 
         final List<Integer> randomNumbersList = new ArrayList<Integer>();
 
-        for (int i = 0; i < 20; i++) {
-            randomNumbersList.add(random.nextInt(100));
-        }
+        randomNumbersList
+                .stream()
+                .forEach(integer -> randomNumbersList.add(random.nextInt(100)));
 
         System.out.println(randomNumbersList
                 .stream()
@@ -34,9 +34,9 @@ public class Java8Practice {
         stringsList.add("fgkl");
         stringsList.add("mprs");
 
-        stringsList
-                .stream()
-                .forEach(System.out::println);
+//        stringsList
+//                .stream()
+//                .forEach();
 
 
     }

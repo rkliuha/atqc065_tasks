@@ -33,14 +33,14 @@ public class CollectionsPractice {
         fixedEmployeesList.add(new FixedSalaryEmploy("Tarasenko", "male", 9));
         fixedEmployeesList.add(new FixedSalaryEmploy("Filin", "male", 10));
 
-        for (Employees fixedEmployees : fixedEmployeesList) {
-            System.out.println(fixedEmployees.id + fixedEmployees.name + fixedEmployees.sex);
+        for (Employees iterator : fixedEmployeesList) {
+            System.out.println(iterator.id + iterator.name + iterator.sex);
         }
 
         Collections.sort(fixedEmployeesList);
 
-        for (Employees fixedEmployees : fixedEmployeesList) {
-            fixedEmployees.printSalary();
+        for (Employees iterator : fixedEmployeesList) {
+            iterator.printSalary();
         }
 
         System.out.println(fixedEmployeesList.get(0).name);

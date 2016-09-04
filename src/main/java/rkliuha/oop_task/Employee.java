@@ -17,8 +17,13 @@ public abstract class Employee implements SalaryCalculator {
         System.out.println("Employee id: " + getId());
         System.out.println("Employee name: " + getName());
         System.out.println("Employee sex: " + getSex());
-        System.out.println("Employee salary: " + getSalary() + "$");
-        System.out.println();
+        System.out.println("Employee salary: " + getSalary() + "$\n");
+    }
+
+    @Override
+    public final String toString() {
+        return "Id: " + getId() + "\tName: " + getName()
+                + "\tSex: " + getSex() + "\tSalary: " + getSalary();
     }
 
     public final String getName() {
@@ -40,4 +45,5 @@ public abstract class Employee implements SalaryCalculator {
     public final void setSalary(final double salary) {
         this.salary = salary;
     }
+
 }

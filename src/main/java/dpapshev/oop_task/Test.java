@@ -1,15 +1,13 @@
 package dpapshev.oop_task;
 
 
-import java.util.*;
-
-
 class Test {
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
 
-        final Employee max = new HourRateEmployee("Max", "male", 12, 34);
-        final Employee bob = new FixedSalaryEmployee("Bob", "male", 10);
+        Employee max = new HourRateEmployees("Max", "male", 12, 34);
+        Employee bob = new FixedSalaryEmployees("Bob", "male", 10);
         bob.printSalary();
         max.printSalary();
+
     }
 }

@@ -1,8 +1,8 @@
 package dpapshev.oop_task;
 
 import dpapshev.oop_task.Employee;
-import dpapshev.oop_task.FixedSalaryEmployee;
-import dpapshev.oop_task.HourRateEmployee;
+import dpapshev.oop_task.FixedSalaryEmployees;
+import dpapshev.oop_task.HourRateEmployees;
 
 import java.util.*;
 
@@ -10,48 +10,48 @@ public class CollectionsPractice {
 
     public static void main(String[] args) {
 
-        final List<FixedSalaryEmployee> fixedSalaryEmployees = new LinkedList<FixedSalaryEmployee>();
-        final List<HourRateEmployee> hourRateEmployees = new LinkedList<HourRateEmployee>();
+        final List<FixedSalaryEmployees> FixedSalaryEmployeess = new LinkedList<FixedSalaryEmployees>();
+        final List<HourRateEmployees> HourRateEmployeess = new LinkedList<HourRateEmployees>();
         final Map<Integer, Employee> mapOfEmployees = new HashMap<Integer, Employee>();
 
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Dima", "male", 1));
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Kola", "male", 2));
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Peta", "male", 3));
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Leva", "male", 4));
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Stas", "male", 5));
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Jhon", "male", 6));
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Vova", "male", 7));
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Sergey", "male", 8));
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Anton", "male", 9));
-        fixedSalaryEmployees.add(new FixedSalaryEmployee("Ernest", "male", 10));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Dima", "male", 1));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Kola", "male", 2));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Peta", "male", 3));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Leva", "male", 4));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Stas", "male", 5));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Jhon", "male", 6));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Vova", "male", 7));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Sergey", "male", 8));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Anton", "male", 9));
+        FixedSalaryEmployeess.add(new FixedSalaryEmployees("Ernest", "male", 10));
 
 
-        hourRateEmployees.add(new HourRateEmployee("Lena", "female", 11, 20));
-        hourRateEmployees.add(new HourRateEmployee("Oksana", "female", 12, 20));
-        hourRateEmployees.add(new HourRateEmployee("Marta", "female", 13, 20));
-        hourRateEmployees.add(new HourRateEmployee("Alina", "female", 14, 20));
-        hourRateEmployees.add(new HourRateEmployee("Sveta", "female", 15, 23));
-        hourRateEmployees.add(new HourRateEmployee("Alena", "female", 16, 20));
-        hourRateEmployees.add(new HourRateEmployee("Klava", "female", 17, 20));
-        hourRateEmployees.add(new HourRateEmployee("Yaroslava", "female", 18, 22));
-        hourRateEmployees.add(new HourRateEmployee("Zhanna", "female", 19, 20));
-        hourRateEmployees.add(new HourRateEmployee("Maria", "female", 20, 20));
+        HourRateEmployeess.add(new HourRateEmployees("Lena", "female", 11, 20));
+        HourRateEmployeess.add(new HourRateEmployees("Oksana", "female", 12, 20));
+        HourRateEmployeess.add(new HourRateEmployees("Marta", "female", 13, 20));
+        HourRateEmployeess.add(new HourRateEmployees("Alina", "female", 14, 20));
+        HourRateEmployeess.add(new HourRateEmployees("Sveta", "female", 15, 23));
+        HourRateEmployeess.add(new HourRateEmployees("Alena", "female", 16, 20));
+        HourRateEmployeess.add(new HourRateEmployees("Klava", "female", 17, 20));
+        HourRateEmployeess.add(new HourRateEmployees("Yaroslava", "female", 18, 22));
+        HourRateEmployeess.add(new HourRateEmployees("Zhanna", "female", 19, 20));
+        HourRateEmployeess.add(new HourRateEmployees("Maria", "female", 20, 20));
 
 
-        mapOfEmployees.put(11, new HourRateEmployee("Masha", "female", 21, 20));
-        mapOfEmployees.put(12, new HourRateEmployee("Dasha", "female", 22, 22));
-        mapOfEmployees.put(13, new HourRateEmployee("Sasha", "female", 22, 24));
-        mapOfEmployees.put(14, new HourRateEmployee("Glasha", "female", 24, 25));
-        mapOfEmployees.put(15, new HourRateEmployee("Natasha", "female", 25, 26));
-        mapOfEmployees.put(16, new FixedSalaryEmployee("Gena", "male", 26));
-        mapOfEmployees.put(17, new FixedSalaryEmployee("Sena", "male", 22));
-        mapOfEmployees.put(18, new FixedSalaryEmployee("Gosha", "male", 21));
-        mapOfEmployees.put(19, new FixedSalaryEmployee("Grisha", "male", 24));
-        mapOfEmployees.put(20, new FixedSalaryEmployee("Pavel", "male", 25));
+        mapOfEmployees.put(11, new HourRateEmployees("Masha", "female", 21, 20));
+        mapOfEmployees.put(12, new HourRateEmployees("Dasha", "female", 22, 22));
+        mapOfEmployees.put(13, new HourRateEmployees("Sasha", "female", 22, 24));
+        mapOfEmployees.put(14, new HourRateEmployees("Glasha", "female", 24, 25));
+        mapOfEmployees.put(15, new HourRateEmployees("Natasha", "female", 25, 26));
+        mapOfEmployees.put(16, new FixedSalaryEmployees("Gena", "male", 26));
+        mapOfEmployees.put(17, new FixedSalaryEmployees("Sena", "male", 22));
+        mapOfEmployees.put(18, new FixedSalaryEmployees("Gosha", "male", 21));
+        mapOfEmployees.put(19, new FixedSalaryEmployees("Grisha", "male", 24));
+        mapOfEmployees.put(20, new FixedSalaryEmployees("Pavel", "male", 25));
 
-        Collections.sort(hourRateEmployees);
-        printFewLastEmployeesFromList(hourRateEmployees, 3);
-        printFewFirstEmployeesFromList(hourRateEmployees, 5);
+        Collections.sort(HourRateEmployeess);
+        printFewLastEmployeesFromList(HourRateEmployeess, 3);
+        printFewFirstEmployeesFromList(HourRateEmployeess, 5);
         printMapOfEmployeesBasedOnGender(mapOfEmployees, "male");
     }
 

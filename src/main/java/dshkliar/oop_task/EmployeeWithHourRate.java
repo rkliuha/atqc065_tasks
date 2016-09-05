@@ -9,9 +9,10 @@ public class EmployeeWithHourRate extends Employee {
         this.hourRate = hourRate;
         this.rate = rate;
         this.hours = hours;
+        getCalculatedSalary();
     }
 
-    final public double calculateSalary() {
+    final public double getCalculatedSalary() {
         salary = rate * hours * hourRate;
         return salary;
     }
@@ -20,6 +21,6 @@ public class EmployeeWithHourRate extends Employee {
         System.out.println("\nInfomation for Employee With Hour Rate: ");
         System.out.println("\tname: " + name + ";\n\tsex: " + sex
                 + ";\n\tID: " + identifier + ";\n\tsalary: "
-                + calculateSalary());
+                + getCalculatedSalary());
     }
 }

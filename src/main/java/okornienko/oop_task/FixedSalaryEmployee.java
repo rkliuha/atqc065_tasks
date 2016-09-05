@@ -1,18 +1,19 @@
 package okornienko.oop_task;
 
-/**
- * Created by Aleksandr on 25-08-16.
- */
-public class FixedSalaryEmployee extends Employees  {
-    FixedSalaryEmployee(int employeeId, String employeeName, String employeeSex, double employeeSalary) {
+class FixedSalaryEmployee extends Employee {
+    private final double fixedSalary;
+    private final double bonusSalary;
+
+    FixedSalaryEmployee(final int employeeId, final String employeeName, final String employeeSex,
+                        final double fixedSalary, final double bonusSalary) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeSex = employeeSex;
-        this.employeeSalary = employeeSalary;
+        this.fixedSalary = fixedSalary;
+        this.bonusSalary = bonusSalary;
     }
 
-  public final double calculateSalary() {
-        return employeeSalary;
+    public final void calculateSalary() {
+        employeeSalary = fixedSalary + bonusSalary;
     }
-
 }

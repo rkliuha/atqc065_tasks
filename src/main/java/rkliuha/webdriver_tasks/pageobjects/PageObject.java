@@ -46,10 +46,8 @@ public abstract class PageObject {
     }
 
     public final String getTextFromLink(final By pathToElement) {
-        final String textLink =
-                driver
-                        .findElement(pathToElement)
-                        .getText();
-        return textLink;
+        return driver
+                .findElement(pathToElement)
+                .getText();
     }
 }

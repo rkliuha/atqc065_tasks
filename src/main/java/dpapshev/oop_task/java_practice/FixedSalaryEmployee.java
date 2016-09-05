@@ -1,5 +1,5 @@
-package dpapshev.oop_task;
-import java.util.*;
+package dpapshev.oop_task.java_practice;
+import dpapshev.oop_task.java_practice.Employee;
 
 
 public class FixedSalaryEmployee extends Employee {

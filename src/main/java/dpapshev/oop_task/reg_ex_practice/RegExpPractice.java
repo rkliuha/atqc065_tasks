@@ -1,4 +1,4 @@
-package dpapshev.oop_task.RegExPractice;
+package dpapshev.oop_task.reg_ex_practice;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

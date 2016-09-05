@@ -1,4 +1,4 @@
-package dpapshev.oop_task.StringPractice;
+package dpapshev.oop_task.string_practice;
 
 
 public class StringPractice {

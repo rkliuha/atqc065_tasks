@@ -28,7 +28,7 @@ public class GoogleStartPage {
     }
 
     public GoogleStartPage hideGoogleLogo() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+       final JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].style.visibility='hidden'", driver.findElement(By.id(GOOGLE_LOGO_BY_ID)));
         return this;
     }

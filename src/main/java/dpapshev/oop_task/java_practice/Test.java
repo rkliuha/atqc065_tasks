@@ -1,7 +1,9 @@
-package dpapshev.oop_task;
+package dpapshev.oop_task.java_practice;
 
 
-import java.util.*;
+import dpapshev.oop_task.java_practice.Employee;
+import dpapshev.oop_task.java_practice.FixedSalaryEmployee;
+import dpapshev.oop_task.java_practice.HourRateEmployee;
 
 
 class Test {

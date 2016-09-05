@@ -1,5 +1,7 @@
-package dpapshev.oop_task;
+package dpapshev.oop_task.java_practice;
 
+
+import dpapshev.oop_task.java_practice.Employee;
 
 public class HourRateEmployee extends Employee {
     private double hourRate;

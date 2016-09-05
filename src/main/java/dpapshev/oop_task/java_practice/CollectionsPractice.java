@@ -1,8 +1,4 @@
-package dpapshev.oop_task;
-
-import dpapshev.oop_task.Employee;
-import dpapshev.oop_task.FixedSalaryEmployee;
-import dpapshev.oop_task.HourRateEmployee;
+package dpapshev.oop_task.java_practice;
 
 import java.util.*;
 

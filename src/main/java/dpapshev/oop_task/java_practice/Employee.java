@@ -1,4 +1,4 @@
-package dpapshev.oop_task;
+package dpapshev.oop_task.java_practice;
 
 
 abstract class Employee implements SalaryCalculator, Comparable<Employee> {

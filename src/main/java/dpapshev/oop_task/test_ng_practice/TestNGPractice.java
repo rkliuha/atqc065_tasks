@@ -1,4 +1,4 @@
-package dpapshev.oop_task.TestNGPractice;
+package dpapshev.oop_task.test_ng_practice;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

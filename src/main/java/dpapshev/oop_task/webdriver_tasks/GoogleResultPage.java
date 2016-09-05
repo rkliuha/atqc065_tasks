@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class GoogleResultPage {
     private final WebDriver driver;
@@ -24,18 +25,9 @@ public class GoogleResultPage {
                 .getText();
     }
 
-    public boolean getIfQuantityOfImagesAtLeastTrue(final int quantityOfImages) {
-        boolean checkIfTrue = true;
-        //Changing number of div[1] "1" to the variable i from the counter
-        String linkPrepareForCounter = FIRST_IMAGE_AFTER_IMAGE_SEARCH_BY_XPATH.replaceAll("1", "\"+i+\"");
-        //Check for the presence of the specified number of pictures
-        for (int i = 1; i < quantityOfImages + 1; i++) {
-            if (driver.findElement(By.xpath(linkPrepareForCounter)) == null) {
-                checkIfTrue = false;
-                break;
-            }
-        }
-        return checkIfTrue;
+    public int getImagesQuantity() {
+      final List<WebElement> imagesQuantity = driver.findElements(By.xpath("html/body//div[@id ='rg_s']//img"));
+        return imagesQuantity.size();
     }
 
     public GoogleResultPage clickOnTheButton(final String nameOfTheButton) {
@@ -46,18 +38,15 @@ public class GoogleResultPage {
     }
 
     public GoogleResultPage doTheScreenshot() throws IOException {
-        File screenshotFile = ((TakesScreenshot) driver).
+      final File screenshotFile = ((TakesScreenshot) driver).
                 getScreenshotAs(OutputType.FILE);
         return this;
     }
 
     public GoogleResultPage changeLinkColor(final String color) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js
-                .executeScript("arguments[0].style.color='" + color + "'"
-                        , driver
-                                .findElement(By
-                                        .xpath(FIRST_LINK_XPATH)));
+      final JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.color='" + color + "'",
+                        driver.findElement(By.xpath(FIRST_LINK_XPATH)));
         return this;
     }
 

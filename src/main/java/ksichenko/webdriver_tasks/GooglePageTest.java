@@ -1,17 +1,24 @@
-package ksichenko.oop_task.webdriver_tasks;
+package ksichenko.webdriver_tasks;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.AssertJUnit.assertTrue;
+import static ksichenko.webdriver_tasks.GoogleHomePage.FUNNY_PICTURES_IMAGES_LINK;
+import static ksichenko.webdriver_tasks.GoogleHomePage.GOOGLE_HOME_PAGE;
+import static ksichenko.webdriver_tasks.GoogleHomePage.GOOGLE_SEARCH_BUTTON;
+
 
 public class GooglePageTest {
+
+    public static final int TIMEOUT = 5;
 
     private WebDriver driver;
 
@@ -23,10 +30,10 @@ public class GooglePageTest {
         driver.
                 manage().
                 timeouts().
-                implicitlyWait(30, TimeUnit.SECONDS);
+                implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
 
         driver
-                .get("https://www.google.com");
+                .get(GOOGLE_HOME_PAGE);
     }
 
     @AfterTest
@@ -41,64 +48,78 @@ public class GooglePageTest {
         final GoogleHomePage homePage = new GoogleHomePage(driver);
 
         final ResultPage resultPage = homePage
-                .searchPageFunnyPictures("funny pictures");
+                .searchFor("funny pictures");
+
+        homePage
+                .click(GOOGLE_SEARCH_BUTTON);
 
         Assert.assertTrue(resultPage
-                .getFunnyPictures()
+                .getFunnyPicturesText()
                 .toLowerCase()
                 .contains("funny pictures"));
     }
 
-    @Test(dependsOnMethods = "googlePageTest")
+    @Test
     public void googlePageTest1() {
 
         final GoogleHomePage homePage = new GoogleHomePage(driver);
 
         final ResultPage resultPage = homePage
-                .searchFirstFivePageFunnyPictures("funny pictures");
+                .searchFor("funny pictures");
+        homePage
+                .click(FUNNY_PICTURES_IMAGES_LINK);
 
-        Assert.assertTrue(resultPage
-                .getFirstFiveFunnyPictures()
-                .isDisplayed());
+        final List<WebElement> elementsList = resultPage.getAllFunnyPictures();
+
+        elementsList
+                .stream()
+                .limit(5)
+                .forEach(webElement -> Assert.assertTrue(webElement.isDisplayed()));
     }
 
-    @Test(dependsOnMethods = "googlePageTest1")
+    @Test
     public void googlePageTest2() {
 
         final GoogleHomePage homePage = new GoogleHomePage(driver);
 
         final ResultPage resultPage = homePage
-                .searchGoogleLogo();
+                .goToGooglePage();
 
         Assert.assertTrue(resultPage
                 .getGoogleLogo()
                 .isDisplayed());
 
-        final ResultPage resultPage1 = homePage
-                .searchGoogleLogo();
+        homePage
+                .goToGooglePage();
 
-        Assert.assertFalse(resultPage1
+        Assert.assertFalse(resultPage
                 .getHidedGoogleLogo()
                 .isDisplayed());
     }
 
-    @Test(dependsOnMethods = "googlePageTest2")
+    @Test
     public void googlePageTest3() {
 
         final GoogleHomePage homePage = new GoogleHomePage(driver);
 
         final ResultPage resultPage = homePage
-                .searchFunnyKittenPicturesPage("funny kitten picture");
+                .searchFor("funny kitten picture");
+
+        homePage
+                .click(GOOGLE_SEARCH_BUTTON);
 
         Assert.assertTrue(resultPage
-                .getFunnyKittenPicturesPage()
+                .getFunnyKittenPicturesPageText()
                 .toLowerCase()
                 .contains("funny kitten picture"));
 
-        final ResultPage resultPage1 = homePage
-                .searchFunnyKittenPicturesPage("funny kitten picture");
+        homePage
+                .searchFor("funny kitten picture");
 
-        Assert.assertTrue(resultPage1
+        homePage
+                .click(GOOGLE_SEARCH_BUTTON);
+
+        Assert.assertTrue(resultPage
                 .getChangedFunnyKittenPicturesLink()
                 .getAttribute("style")
                 .contains("black"));

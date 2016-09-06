@@ -1,4 +1,4 @@
-package ksichenko.oop_task.Java8Practice;
+package ksichenko;
 
 import java.util.HashSet;
 import java.util.Set;

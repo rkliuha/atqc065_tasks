@@ -1,4 +1,4 @@
-package ksichenko.oop_task.TestNGPractice;
+package ksichenko;
 
 import org.testng.TestNG;
 import org.testng.annotations.DataProvider;

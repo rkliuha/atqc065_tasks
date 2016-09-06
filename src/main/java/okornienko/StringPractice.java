@@ -23,10 +23,10 @@ public class StringPractice {
         System.out.println(unsortedString);
     }
 
-    private static void countChars() {
+    private static void countChars(final char symbol) {
         count = 0;
         for (int i = 0; i < unsortedString.length(); i++) {
-            if (unsortedString.charAt(i) == 'a') {
+            if (unsortedString.charAt(i) == symbol) {
                 count++;
             }
         }
@@ -36,20 +36,14 @@ public class StringPractice {
     private static void replaceChars() {
         unsortedString = unsortedString.replaceAll("\n", "");
         unsortedString = unsortedString.replaceAll("[u,i,o,a,y,e]", "?");
+        System.out.println("Replacing u,i,o,a,y,e to ?");
         System.out.println(unsortedString);
-
-        count = 0;
-        for (int i = 0; i < unsortedString.length(); i++) {
-            if (unsortedString.charAt(i) == '?') {
-                count++;
-            }
-        }
-        System.out.println("Total count of ? = " + count);
     }
 
     public static void main(String[] args) {
         createRandomStrings();
-        countChars();
+        countChars('a');
         replaceChars();
+        countChars('?');
     }
 }

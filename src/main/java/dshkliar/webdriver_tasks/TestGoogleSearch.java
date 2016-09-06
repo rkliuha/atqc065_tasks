@@ -1,21 +1,28 @@
 package dshkliar.webdriver_tasks;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestGoogleSearch {
     private WebDriver driver;
 
     @BeforeTest
-    public void preConditions() {
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -25,69 +32,57 @@ public class TestGoogleSearch {
     @Test
     public void funnyPictureSearch() {
         final HomePage home = new HomePage(driver);
-        final ResultPage result = home.search("funny picture");
+        final ResultPage result = home.doSearch("funny picture");
         Assert.assertTrue(result.getFirstLink().toLowerCase().contains("funny picture"));
+        result.goToImageTab();
     }
 
     @Test(dependsOnMethods = {"funnyPictureSearch"})
-    public void testImageTab() {
-        final ResultPage result = new ResultPage(driver);
-        final ResultImageTab resultImage = result.goToImageTab();
-    }
-
-    @Test(dependsOnMethods = {"testImageTab"})
-    public void listsOfImages() {
+    public void getImages() throws IOException {
         final ResultImageTab resultImage = new ResultImageTab(driver);
-        Assert.assertTrue(resultImage.getListsOfImages(5));
+        final List<WebElement> images = resultImage.getListOfImages();
+        images.stream()
+                .limit(5)
+                .forEach(webElement ->
+                        Assert.assertTrue(webElement.isDisplayed()));
+        resultImage.takeScreenShot("c:\\SoftServe\\Projects\\Task_10_screenshot.png");
+        resultImage.goIntoHomePage();
     }
 
-    @Test(dependsOnMethods = {"listsOfImages"})
-    public void getScreenShot() throws IOException {
-        final ResultImageTab resultImageTab = new ResultImageTab(driver);
-        resultImageTab.getScreenShot("c:\\SoftServe\\Projects\\Task_10_screenshot.png");
-    }
-
-    @Test(dependsOnMethods = {"getScreenShot"})
-    public void goIntoHomePage() {
-        final ResultImageTab resultImageTab = new ResultImageTab(driver);
-        final HomePage home = resultImageTab.goIntoHomePage();
-    }
-
-    @Test(dependsOnMethods = {"goIntoHomePage"})
+    @Test(dependsOnMethods = {"getImages"})
     public void verifyDisplayedLogo() {
         final HomePage home = new HomePage(driver);
-        Assert.assertTrue(home.verifyLogo());
+        Assert.assertTrue(home.getLogo().isDisplayed());
+        home.hideLogo("hidden");
     }
 
     @Test(dependsOnMethods = {"verifyDisplayedLogo"})
-    public void hideLogo() {
-        final HomePage home = new HomePage(driver);
-        home.visibilityOfLogo("hidden");
-    }
-
-    @Test(dependsOnMethods = {"hideLogo"})
     public void verifyNotDisplayedLogo() {
         final HomePage home = new HomePage(driver);
-        Assert.assertFalse(home.verifyLogo());
+        Assert.assertFalse(home.getLogo().isDisplayed());
     }
 
     @Test(dependsOnMethods = {"verifyNotDisplayedLogo"})
     public void funnyKitten() {
         final HomePage home = new HomePage(driver);
-        final ResultPage result = home.search("funny kitten picture");
+        final ResultPage result = home.doSearch("funny kitten picture");
         Assert.assertTrue(result.getFirstLink().toLowerCase().contains("funny kitten picture"));
-    }
-
-    @Test(dependsOnMethods = {"funnyKitten"})
-    public void changeColor() {
-        final ResultPage result = new ResultPage(driver);
         result.changeFirstLinkColor("white");
     }
 
-    @Test(dependsOnMethods = {"changeColor"})
+    @Test(dependsOnMethods = {"funnyKitten"})
     public void verifyColor() {
         final ResultPage result = new ResultPage(driver);
-        Assert.assertTrue(result.verifyFirstLinkColor("white"));
+        Assert.assertTrue(result.getFirstLinkColor().contains("white"));
+    }
+
+    @AfterMethod
+    public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+        if (testResult.getStatus() == ITestResult.FAILURE) {
+            System.out.println(testResult.getStatus());
+            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(scrFile, new File("c:\\SoftServe\\Projects\\FailScreenShot.png"));
+        }
     }
 
     @AfterTest

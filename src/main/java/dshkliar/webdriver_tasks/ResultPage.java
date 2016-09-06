@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 
 public class ResultPage {
     private final WebDriver driver;
-    private final By FIRST_LINK = By.xpath("//div[@class='srg']/descendant::a[1]");
-    private final By IMAGE_TAB = By.xpath("//div[@class='hdtb-mitem hdtb-imb'][1]/a");
+    private static final By FIRST_LINK = By.xpath("//div[@class='srg']/descendant::a[1]");
+    private static final By IMAGE_TAB = By.xpath("//div[@class='hdtb-mitem hdtb-imb'][1]/a");
 
     public ResultPage(final WebDriver driver) {
         this.driver = driver;
@@ -29,8 +29,7 @@ public class ResultPage {
                 driver.findElement(FIRST_LINK));
     }
 
-    protected boolean verifyFirstLinkColor(final String color) {
-        return driver.findElement(FIRST_LINK)
-                .getAttribute("style").contains(color);
+    protected String getFirstLinkColor() {
+        return driver.findElement(FIRST_LINK).getAttribute("style");
     }
 }

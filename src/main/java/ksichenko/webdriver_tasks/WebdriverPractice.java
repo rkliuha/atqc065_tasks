@@ -1,4 +1,4 @@
-package ksichenko.oop_task.WebdriverPractice;
+package ksichenko.webdriver_tasks;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

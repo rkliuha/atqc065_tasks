@@ -1,17 +1,17 @@
-package ksichenko.oop_task.webdriver_tasks;
+package ksichenko.webdriver_tasks;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ResultPage {
 
     public static final By FUNNY_PICTURES_SEARCH_FIRST_LINK = By.xpath("(.//div[@class=\"srg\"]//a)[1]");
     public static final By FUNNY_KITTEN_PICTURE_PAGE_FIRST_LINK = By.xpath("(.//h3[@class=\"r\"]//a)[1]");
+    public static final By ALL_FANNY_PICTURES = By.xpath(".//div[@id='rg_s']//img");
 
     private final WebDriver driver;
 
@@ -19,28 +19,16 @@ public class ResultPage {
         this.driver = driver;
     }
 
-    public String getFunnyPictures() {
+    public String getFunnyPicturesText() {
 
         return driver
                 .findElement(FUNNY_PICTURES_SEARCH_FIRST_LINK).getText();
     }
 
-    public WebElement getFirstFiveFunnyPictures() {
+    public List<WebElement> getAllFunnyPictures() {
 
-        final List<WebElement> elementsList = new ArrayList<>();
-
-        for (int i = 1; i <= 5; i++) {
-            final WebElement element = driver
-                    .findElement(By.xpath(".//div[@id='rg_s']/div[" + i + "]/a/img"));
-            elementsList.add(element);
-        }
-
-        for (WebElement webElement : elementsList) {
-            return webElement;
-        }
-
-        return getFirstFiveFunnyPictures();
-
+        return driver
+                .findElements(ALL_FANNY_PICTURES);
     }
 
     public WebElement getGoogleLogo() {
@@ -61,7 +49,7 @@ public class ResultPage {
         return element;
     }
 
-    public String getFunnyKittenPicturesPage() {
+    public String getFunnyKittenPicturesPageText() {
 
         return driver
                 .findElement(FUNNY_KITTEN_PICTURE_PAGE_FIRST_LINK).getText();
@@ -69,7 +57,7 @@ public class ResultPage {
 
     public WebElement getChangedFunnyKittenPicturesLink() {
 
-        WebElement element =
+        final WebElement element =
                 driver
                         .findElement(FUNNY_KITTEN_PICTURE_PAGE_FIRST_LINK);
 
@@ -77,5 +65,6 @@ public class ResultPage {
 
         return element;
     }
+
 }
 

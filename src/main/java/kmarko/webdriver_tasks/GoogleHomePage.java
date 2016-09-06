@@ -20,7 +20,7 @@ public class GoogleHomePage {
         return new GoogleSearchResultPage(driver);
     }
 
-    final public boolean findGoogleLogo() {
+    final public boolean IsGoogleLogo() {
         return driver.findElement(GOOGLE_LOGO).isDisplayed();
     }
 

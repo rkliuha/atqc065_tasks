@@ -9,18 +9,18 @@ public class GoogleSearchResultPage {
 
     private final WebDriver driver;
     private static final By FIRST_LINK = By.xpath("//div[@class='srg']/descendant::a[1]");
-    private static final By IMAGE_RESULT_TAB = By.xpath("//div[@class='hdtb-mitem hdtb-imb'][1]/a");
+    private static final By IMAGE_RESULT_PAGE = By.xpath("//div[@class='hdtb-mitem hdtb-imb'][1]/a");
 
     public GoogleSearchResultPage(final WebDriver driver) {
         this.driver = driver;
     }
 
-    final public String getFirstLink() {
+    final public String getFirstLinkText() {
         return driver.findElement(FIRST_LINK).getText();
     }
 
-    final public GoogleImageSearchResultPage getImageResultTab() {
-        driver.findElement(IMAGE_RESULT_TAB).sendKeys(Keys.RETURN);
+    final public GoogleImageSearchResultPage goToImageResultPage() {
+        driver.findElement(IMAGE_RESULT_PAGE).sendKeys(Keys.RETURN);
         return new GoogleImageSearchResultPage(driver);
     }
 
@@ -31,8 +31,7 @@ public class GoogleSearchResultPage {
         return this;
     }
 
-    final public boolean verifyLinkColor(final String colorValue) {
-        return driver.findElement(FIRST_LINK)
-                .getAttribute("style").contains(colorValue);
+    final public String getLinkColorAttribute() {
+        return driver.findElement(FIRST_LINK).getAttribute("style");
     }
 }

@@ -1,6 +1,7 @@
 package kmarko.webdriver_tasks;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -8,6 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestsGoogleSearch {
@@ -33,23 +35,26 @@ public class TestsGoogleSearch {
         final GoogleSearchResultPage funnyPictureSearchResultPage =
                 homePage.inputInSearchField("funny picture");
         Assert.assertTrue(funnyPictureSearchResultPage
-                .getFirstLink().toLowerCase().contains("funny picture"));
+                .getFirstLinkText().toLowerCase().contains("funny picture"));
 
         final GoogleImageSearchResultPage imageTab =
-                funnyPictureSearchResultPage.getImageResultTab();
-        Assert.assertTrue(imageTab.searchImageElements(5));
+                funnyPictureSearchResultPage.goToImageResultPage();
+        final List<WebElement> images = imageTab.getImageElementsList();
+        images.stream().limit(5)
+                .forEach(WebElement -> Assert.assertTrue(WebElement.isDisplayed()));
         imageTab.takeScreenshot();
 
-        imageTab.openGoogleMainPage();
-        Assert.assertTrue(homePage.findGoogleLogo());
+        imageTab.goToGoogleMainPage();
+        Assert.assertTrue(homePage.IsGoogleLogo());
         homePage.hideGoogleLogo();
-        Assert.assertFalse(homePage.findGoogleLogo());
+        Assert.assertFalse(homePage.IsGoogleLogo());
 
         final GoogleSearchResultPage funnyKittenSearchResultPage = homePage
                 .inputInSearchField("funny kitten picture");
-        Assert.assertTrue(funnyKittenSearchResultPage.getFirstLink()
+        Assert.assertTrue(funnyKittenSearchResultPage.getFirstLinkText()
                 .toLowerCase().contains("funny kitten picture"));
         funnyKittenSearchResultPage.changeLinkColor("red");
-        Assert.assertTrue(funnyKittenSearchResultPage.verifyLinkColor("red"));
+        Assert.assertTrue(funnyKittenSearchResultPage
+                .getLinkColorAttribute().contains("red"));
     }
 }

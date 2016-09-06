@@ -1,71 +1,66 @@
 package okornienko.webdriver_tasks;
 
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class WebdriverPractice {
+    private final FirefoxDriver firefox = new FirefoxDriver();
+    private final GoogleHomePage googleHomePage = new GoogleHomePage(firefox);
+    private final GoogleSearchPage googleSearchPage = new GoogleSearchPage(firefox);
 
-    private final String google = "https://www.google.com.ua";
-    private final String searchField = "//input[@id='lst-ib']";
-    private final String searchButton = "//button[@class='lsb']";
-    private final String firstLink = "//h3 [@class='r'][1]/a[1]";
-    private final String picturesButton = "//div[@class='_Icb _kk _wI']/a";
-    private final String picture = "//div[@class = 'rg_di rg_bx rg_el ivg-i'][";
-    private final String logoGoogle = "//div[@id='hplogo']";
-    private final String blackColor = "black";
-    private final String file = "e:\\screenshot.png";
-    private final MethodsBuilder run = new MethodsBuilder();
+    @BeforeTest
+    final public void driverSetUp() {
+        firefox.manage().window().maximize();
+        firefox.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
 
     @Test
     public void startTest() throws InterruptedException, IOException {
-
-        assertTrue(run
+        googleHomePage
+                .openHomePage()
                 .pause()
-                .goToUrl(google)
-                .pause()
-                .enterTextByXPath(searchField, "funny picture")
-                .pause()
-                .clickUsingXPath(searchButton)
-                .pause()
-                .checkIfContainsTextUsingXPath(firstLink, "funny picture"));
-
-        assertTrue(run
-                .clickUsingXPath(picturesButton)
-                .pause()
-                .checkAllDisplayed(picture, 5) // check if 5 pictures are displayed
+                .enterText("funny picture")
+                .clickSearchButton()
+                .pause();
+        assertTrue(
+                googleSearchPage
+                        .checkIfContainsText("funny picture")
         );
-        assertTrue(run
-                .makeScreenshot(file)
-                .goToUrl(google)
+        googleSearchPage
+                .clickPicturesButton()
+                .pause();
+        assertTrue(googleSearchPage.getPicturesSize() >= 5);
+        googleSearchPage
+                .makeScreenshot();
+        googleHomePage
+                .openHomePage()
+                .pause();
+        assertTrue(googleHomePage.checkIfDisplayedLogo());
+        googleHomePage
+                .hideElementLogo()
+                .pause();
+        assertFalse(googleHomePage.checkIfDisplayedLogo());
+        googleHomePage
+                .enterText("funny kitten picture")
                 .pause()
-                .checkIfDisplayed(logoGoogle)
-        );
-        assertFalse(run
-                .hideElement(logoGoogle)
-                .pause()
-                .checkIfDisplayed(logoGoogle)
-        );
-        assertTrue(run
-                .enterTextByXPath(searchField, "funny kitten picture")
-                .pause()
-                .clickUsingXPath(searchButton)
-                .pause()
-                .checkIfContainsTextUsingXPath(firstLink, "Funny Kitten Picture")
-        );
-        assertFalse(run
-                .changeColor(firstLink, blackColor)
-                .pause()
-                .checkLinkColor(firstLink)
-        );
+                .clickSearchButton()
+                .pause();
+        assertTrue(googleSearchPage.checkIfContainsText("Funny Kitten Picture"));
+        googleSearchPage
+                .changeColor("black")
+                .pause();
+        assertFalse(googleSearchPage.checkIfContainsFirstLink());
     }
 
     @AfterTest
     private void quit() {
-        run.end();
+        firefox.quit();
     }
 
 }

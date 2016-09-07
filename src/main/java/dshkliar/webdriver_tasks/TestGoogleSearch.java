@@ -15,6 +15,9 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -77,11 +80,13 @@ public class TestGoogleSearch {
     }
 
     @AfterMethod
-    public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+    public void takeScreenShotOnFailure(final ITestResult testResult) throws IOException {
         if (testResult.getStatus() == ITestResult.FAILURE) {
-            System.out.println(testResult.getStatus());
-            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(scrFile, new File("c:\\SoftServe\\Projects\\FailScreenShot.png"));
+            final Date currentDate = new Date();
+            final Format formatter = new SimpleDateFormat("dd.MM.yyyy_HH-mm");
+            final File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(scrFile, new File("screenshots//" + "Screenshot - " +
+                    formatter.format(currentDate) + ".png"));
         }
     }
 

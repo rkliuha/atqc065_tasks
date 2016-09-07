@@ -1,4 +1,4 @@
-package kmarko;
+package kmarko.webdriver_tasks;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -16,13 +16,13 @@ public class WebdriverPractice {
     final WebDriver driver = new FirefoxDriver();
 
     @BeforeTest
-     final public void driverSetUp() {
+    final public void driverSetUp() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @Test
-    final public void testNavigationMethod() throws InterruptedException, IOException {
+    final public void testWebdriverPractice() throws InterruptedException, IOException {
 
 //      task_9_a
         driver.navigate().to("https://www.google.com");
@@ -44,7 +44,6 @@ public class WebdriverPractice {
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenshot, new File("screen.png"));
 
-
 //      task_9_f
         driver.navigate().back();
         driver.navigate().back();
@@ -58,7 +57,6 @@ public class WebdriverPractice {
 
 //      task_9_i
         Assert.assertFalse(googleLogoElement.isDisplayed());
-
 
 //      task_9_j, task_9_k
         driver.findElement(By.xpath("//input[@id='lst-ib']")).sendKeys("funny kitten picture");

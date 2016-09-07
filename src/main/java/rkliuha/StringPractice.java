@@ -2,13 +2,13 @@ package rkliuha;
 
 public class StringPractice {
 
-    public static final String[] words = new String[50];
+    public static final StringBuilder[] words = new StringBuilder[50];
 
     public static void main(final String[] args) {
 
         fillOutRandom(words);
         System.out.println("Array is filled out:");
-        for (final String word : words) {
+        for (final StringBuilder word : words) {
             System.out.println(word);
         }
 
@@ -29,43 +29,41 @@ public class StringPractice {
 
     }
 
-    public static final void fillOutRandom(final String[] words) {
+    public static final void fillOutRandom(final StringBuilder[] words) {
         for (int i = 0; i < words.length; i++) {
-            words[i] = " ";
+            words[i] = new StringBuilder("");
             for (int k = 0; k < ((Math.random() + 1) * 5); k++) {
                 final char temp = (char) ((Math.random() + 5) * 20);
-                words[i] += temp;
+                words[i].append(temp);
             }
         }
     }
 
-    public static final int getCountOfSymbol(final String[] words,
+    public static final int getCountOfSymbol(final StringBuilder[] words,
                                              final String symbol) {
         int count = 0;
-        for (final String word : words) {
-            if (word.contains(symbol)) {
+        for (final StringBuilder word : words) {
+            if (word.toString().contains(symbol)) {
                 count++;
             }
         }
         return count;
     }
 
-    public static final String getOneLineString(final String[] words) {
-        String comboString = "";
-        for (final String word : words) {
-            comboString += word;
+    public static final String getOneLineString(final StringBuilder[] words) {
+        final StringBuilder temporaryString = new StringBuilder();
+        for (final StringBuilder word : words) {
+            temporaryString.append(word + " ");
         }
-        return comboString;
+        return temporaryString.toString();
     }
 
     public static final String getReplacedVowelsTo(String comboString,
                                                    final char forVowelsReplacement) {
         final char[] vowels = {'u', 'i', 'o', 'a', 'y', 'e'};
-        for (int i = 0; i < comboString.length(); i++) {
-            for (int j = 0; j < vowels.length; j++) {
-                comboString = comboString.replace(vowels[j],
-                        forVowelsReplacement);
-            }
+        for (int j = 0; j < vowels.length; j++) {
+            comboString = comboString.replace(vowels[j],
+                    forVowelsReplacement);
         }
         return comboString;
     }

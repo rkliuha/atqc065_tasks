@@ -16,15 +16,15 @@ public class StringPractice {
         System.out.println("\nNumber of counted strings include symbol: \n"
                 + countOfSymbol);
 
-        String comboString = getOneLineString(words);
+        final String comboString = getOneLineString(words);
 
         System.out.println("\nOne-line String is filled from Array: \n"
                 + comboString);
 
-        comboString = getReplacedVowelsTo(comboString, '?');
-        System.out.println("\nThe String after replacement: \n" + comboString);
+        final String replacedVowelsString = getReplacedVowelsTo(comboString, '?');
+        System.out.println("\nThe String after replacement: \n" + replacedVowelsString);
 
-        final int countOfChar = getCountOfChar(comboString, '?');
+        final int countOfChar = getCountOfChar(replacedVowelsString, '?');
         System.out.println("\nNumber of counted chars: \n" + countOfChar);
 
     }
@@ -68,11 +68,11 @@ public class StringPractice {
         return comboString;
     }
 
-    public static final int getCountOfChar(final String comboString,
+    public static final int getCountOfChar(final String replacedVowelsString,
                                            final char forCount) {
         int countChar = 0;
-        for (int i = 0; i < comboString.toCharArray().length; i++) {
-            if (comboString.toCharArray()[i] == forCount) {
+        for (int i = 0; i < replacedVowelsString.toCharArray().length; i++) {
+            if (replacedVowelsString.toCharArray()[i] == forCount) {
                 countChar++;
             }
         }

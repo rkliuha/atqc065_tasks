@@ -16,11 +16,6 @@ public class Java8Practice {
         }
 
         Collections.shuffle(randomNumbersList);
-        int[] numbers = new int[randomNumbersList.size()];
-        for (int i = 0; i < randomNumbersList.size(); i++) {
-            numbers[i] = randomNumbersList.get(i);
-        }
-
 
         System.out.println("Min number: " + randomNumbersList
                 .stream()

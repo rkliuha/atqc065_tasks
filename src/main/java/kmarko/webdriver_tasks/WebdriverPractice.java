@@ -41,7 +41,7 @@ public class WebdriverPractice {
         for (int i = 1; i <= 5; i++) {
             Assert.assertTrue(driver.findElement(By.xpath("//div[@id='rg_s']/div[" + i + "]/a/img")).isDisplayed());
         }
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        final File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenshot, new File("screen.png"));
 
 //      task_9_f
